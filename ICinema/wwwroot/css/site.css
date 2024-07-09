@@ -18,5 +18,48 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #1a1a1a;
+    color: white; 
 }
+
+.navbar {
+    background-color: #000; 
+    border-bottom: 1px solid white; 
+    position: relative; 
+}
+
+.navbar .navbar-brand, .navbar .nav-link {
+    color: white; 
+}
+
+.navbar .nav-link:hover {
+    color: #ddd; 
+}
+
+.navbar .profile-link {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: green; 
+    border-radius: 50%;
+    position: absolute; 
+    right: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+footer {
+    background-color: #000; 
+    color: white; 
+    padding: 10px 0;
+}
+
+footer a {
+color: white; 
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+
