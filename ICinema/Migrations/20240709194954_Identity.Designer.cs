@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICinema.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20240709163314_Identity")]
+    [Migration("20240709194954_Identity")]
     partial class Identity
     {
         /// <inheritdoc />
@@ -58,6 +58,10 @@ namespace ICinema.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("Passport")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -102,9 +106,6 @@ namespace ICinema.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RowNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ScreaningId")
                         .HasColumnType("int");
 
                     b.Property<int>("SeatNumber")
