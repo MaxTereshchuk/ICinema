@@ -6,7 +6,7 @@ namespace ICinema.Models
     public class Ticket
     {
         [Key]
-        public int Id;
+        public int Id { get; set; }
         [ForeignKey("Screaning")]
         public int ScreaningId { get; set; }
         //public Screaning Screaning{ get; set; }
