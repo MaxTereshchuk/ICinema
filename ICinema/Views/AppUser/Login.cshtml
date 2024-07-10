@@ -3,9 +3,10 @@
 @{
 	ViewData["Title"] = "Login page";
 }
+<h2>Login</h2>
 <form method="post">
 	
-	<div class="form-group">
+	<div class="form-group" asp-controller="AppUser" asp-action="Login">
 		<label asp-for="Email"></label>
 		<input asp-for="Email" class="form-control"> </input>
 		<span asp-validation-for="Email" class="text-danger"></span>
@@ -16,8 +17,11 @@
 		<input asp-for="Password" class="form-control"> </input>
 		<span asp-validation-for="Password" class="text-danger"></span>
 	</div>
-	<button type="submit" class="btn btn-primary" asp-controller="AppUser" asp-action="Login">Login</button>
-	<div>
-		<span asp-validation-summary="All" class="text-danger"></span>
-	</div>
+	<button type="submit" class="btn btn-primary" >Login</button>
+	
+	
 </form>
+<div>
+	<span>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</span>
+</div>
+
