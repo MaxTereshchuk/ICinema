@@ -3,6 +3,7 @@ using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ICinema.Repositories
 {
@@ -40,6 +41,19 @@ namespace ICinema.Repositories
 				
 			}
 			return newUserResponse;
+		}
+		public async Task<bool> LogOut()
+		{
+
+			try
+			{
+				await _signInManager.SignOutAsync();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 		
 	}

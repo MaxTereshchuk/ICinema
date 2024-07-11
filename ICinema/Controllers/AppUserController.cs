@@ -93,5 +93,11 @@ namespace ICinema.Controllers
 			}
 			return View(registerVM);
 		}
+		[HttpGet]
+		public async Task<IActionResult> LogOut()
+		{
+			bool isLogOut = await _appUserRepository.LogOut();
+			return RedirectToAction("Index", "Home");
+		}
 	}
 }
