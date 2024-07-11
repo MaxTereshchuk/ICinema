@@ -3,7 +3,9 @@ namespace ICinema.Models
 {
     public class AppUser: IdentityUser
     {
-        
-        ICollection<Ticket> Tickets { get; set; }
+        public string? PhoneNumber {  get; set; }
+        public decimal Balance { get; set; }
+        public string? CardInfo  { get; set; }
+        public ICollection<Ticket> MyTickets { get; set; }
     }
 }

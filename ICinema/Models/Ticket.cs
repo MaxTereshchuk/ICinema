@@ -7,11 +7,16 @@ namespace ICinema.Models
     {
         [Key]
         public int Id { get; set; }
-        
-        public int RowNumber { get; set; }
+
+		public DateTime Date { get; set; }
+		public int RowNumber { get; set; }
         public int SeatNumber { get; set; }
         public decimal Price { get; set; }
+		public string ImageUrl { get; set; }
+        [ForeignKey("AppUser")]
+		public string AppUserId { get; set; }
+		public AppUser AppUser { get; set; }
 
 
-    }
+	}
 }

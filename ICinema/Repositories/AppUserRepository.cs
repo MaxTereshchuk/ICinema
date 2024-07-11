@@ -1,4 +1,5 @@
-﻿using ICinema.Data;
+﻿using System.Security.Claims;
+using ICinema.Data;
 using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.ViewModels;
@@ -55,6 +56,10 @@ namespace ICinema.Repositories
 				return false;
 			}
 		}
-		
+
+		public async Task<AppUser> GetUser(ClaimsPrincipal user)
+		{
+			return await _userManager.GetUserAsync(user);
+		}
 	}
 }

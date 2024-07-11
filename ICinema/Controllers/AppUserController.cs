@@ -16,14 +16,25 @@ namespace ICinema.Controllers
 
 			_appUserRepository = appUserRepository;
 		}
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
         {
-			if (!User.Identity.IsAuthenticated)
+			var user =await _appUserRepository.GetUser(User);
+			if (user==null)
 			{
 				return RedirectToAction("Login");
 			}
-            return View();
+
+			UserPersonalProfileVM userPersonalProfileVM = new UserPersonalProfileVM()
+			{
+				Email = user.Email,
+				PhoneNumber = user.PhoneNumber,
+				Balance = user.Balance,
+				CardInfo = user.CardInfo,
+				MyTickets = user.MyTickets
+			};
+            return View(userPersonalProfileVM);
         }
+		
 		public IActionResult Login()
 		{
 			
@@ -38,6 +49,7 @@ namespace ICinema.Controllers
 				return View(loginVM);
 			}
 			var user = await _appUserRepository.GetByEmail(loginVM.Email);
+			
 			if (user != null) 
 			{
 				bool isPasswordCorrect = await _appUserRepository.CheckPassword(user, loginVM);
