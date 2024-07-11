@@ -2,6 +2,7 @@ using ICinema.Data;
 using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.Repositories;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +37,14 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.Use(async (context, next) =>
+{
+	if (context.User.Identity.IsAuthenticated)
+	{
+		await context.SignOutAsync(IdentityConstants.ApplicationScheme);
+	}
+	await next();
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

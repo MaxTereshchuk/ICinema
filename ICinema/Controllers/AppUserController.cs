@@ -29,6 +29,7 @@ namespace ICinema.Controllers
 			
 			return View();
 		}
+		
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginVM loginVM)
 		{
@@ -56,6 +57,41 @@ namespace ICinema.Controllers
 			}
 			return View(loginVM);
 
+		}
+		public IActionResult Register()
+		{
+
+			return View();
+		}
+		[HttpPost]
+		public async Task<IActionResult> Register(RegisterVM registerVM)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View(registerVM);
+			}
+			var user = await _appUserRepository.GetByEmail(registerVM.Email);
+			if (user != null)
+			{
+				ModelState.AddModelError(string.Empty, "This Email has already registered");
+				return View(registerVM);
+			}
+
+			var newUser = new AppUser()
+			{
+				Email=registerVM.Email,
+				UserName=registerVM.Email
+			};
+			var newUserResponse= await _appUserRepository.CreateUser(newUser, registerVM.Password);
+			if (newUserResponse.Succeeded)
+			{
+				return RedirectToAction("Index");
+			}
+			foreach (var error in newUserResponse.Errors)
+			{
+				ModelState.AddModelError(string.Empty, error.Description);
+			}
+			return View(registerVM);
 		}
 	}
 }
