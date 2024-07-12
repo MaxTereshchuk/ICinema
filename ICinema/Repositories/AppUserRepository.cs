@@ -62,19 +62,21 @@ namespace ICinema.Repositories
 			return await _userManager.GetUserAsync(user);
 		}
 
-        public async Task<bool> EditPhoneNumber(AppUser user, string phoneNumber)
+        public async Task<Microsoft.AspNetCore.Identity.IdentityResult> EditPhoneNumber(AppUser user, string phoneNumber)
         {
             user.PhoneNumber = phoneNumber;
             var result = await _userManager.UpdateAsync(user);
-            return result.Succeeded;
+            return result;
 
         }
 
-        public async Task<bool> EditCardInfo(AppUser user, string cardInfo)
+        public async Task<Microsoft.AspNetCore.Identity.IdentityResult> EditCard(AppUser user, Card card)
         {
-            user.CardInfo = cardInfo;
+            user.Card = card;
 			var result = await _userManager.UpdateAsync(user);
-			return result.Succeeded;
+			return result;
         }
-    }
+
+		
+	}
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ICinema")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f9900d69989eb0c67bb80e12a755fab621055f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d86ff302719010f8c286711f744d007deb539b78")]
 [assembly: System.Reflection.AssemblyProductAttribute("ICinema")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ICinema")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

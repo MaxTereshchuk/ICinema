@@ -71,15 +71,34 @@
                 </div>
                 <div class="row d-flex align-items-center justify-content-between">
                     <div class="col-8">
-                        <h4 class="card-title">Ваша картка</h4>
+                        <h4 class="card-title">Ваша картка:</h4>
                     </div>
                     <div class="col-4">
                         
-                            <a asp-controller="AppUser" asp-action="EditCardInfo">(Edit)</a>
+                            <a asp-controller="AppUser" asp-action="EditCard">(Edit)</a>
                         
                     </div>
                 </div>
-                
+                @if(Model.Card!=null){
+                    <div class="row d-flex align-items-center justify-content-between">
+                        <div class="col-8">
+                            <h4 class="card-title">@Model.Card.CardNumber</h4>
+                        </div>
+
+                    </div>
+                    <div class="row d-flex align-items-center justify-content-between">
+                        <div class="col-5">
+                            <h4 class="card-title">@Model.Card.CardHolderName</h4>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="card-title">@Model.Card.ExpiryDate</h4>
+                        </div>
+                        <div class="col-3">
+                            <h4 class="card-title">@Model.Card.CVV</h4>
+                        </div>
+
+                    </div>
+                }
             </div>
         </div>
 
