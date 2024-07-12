@@ -38,14 +38,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 //Ñlears authentication when starting the program
-//app.Use(async (context, next) => 
-//{
-//	if (context.User.Identity.IsAuthenticated)
-//	{
-//		await context.SignOutAsync(IdentityConstants.ApplicationScheme);
-//	}
-//	await next();
-//});
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

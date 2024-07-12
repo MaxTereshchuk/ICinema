@@ -5,6 +5,7 @@ using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ICinema.Repositories
 {
@@ -57,9 +58,13 @@ namespace ICinema.Repositories
 			}
 		}
 
-		public async Task<AppUser> GetUser(ClaimsPrincipal user)
+		public async Task<AppUser> GetUser(ClaimsPrincipal User)
 		{
-			return await _userManager.GetUserAsync(user);
+			 var user = await _userManager.GetUserAsync(User);
+			if (user == null)
+				return user;
+			
+			return await _appDBContext.AppUsers.Include(u=>u.Card).FirstOrDefaultAsync(u => u.Id == user.Id);
 		}
 
         public async Task<Microsoft.AspNetCore.Identity.IdentityResult> EditPhoneNumber(AppUser user, string phoneNumber)

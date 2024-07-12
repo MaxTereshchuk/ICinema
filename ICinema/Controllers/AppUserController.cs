@@ -137,7 +137,7 @@ namespace ICinema.Controllers
 				return View(editPhoneNumberVM);
 			}
 			
-			return NotFound(editPhoneNumberVM);			
+			return View(editPhoneNumberVM);			
 		}
 		public IActionResult EditCard()
 		{
@@ -178,7 +178,7 @@ namespace ICinema.Controllers
 				}
 				return View(editCardVM);
 			}
-			return NotFound(editCardVM);
+			return View(editCardVM);
 		}
 
 

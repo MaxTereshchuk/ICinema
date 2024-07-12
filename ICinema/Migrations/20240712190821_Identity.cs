@@ -26,7 +26,7 @@ namespace ICinema.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Card",
+                name: "Cards",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -39,7 +39,7 @@ namespace ICinema.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Card", x => x.Id);
+                    table.PrimaryKey("PK_Cards", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,9 +89,9 @@ namespace ICinema.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Card_CardId",
+                        name: "FK_AspNetUsers_Cards_CardId",
                         column: x => x.CardId,
-                        principalTable: "Card",
+                        principalTable: "Cards",
                         principalColumn: "Id");
                 });
 
@@ -252,14 +252,14 @@ namespace ICinema.Migrations
                 name: "IX_Tickets_AppUserId",
                 table: "Tickets",
                 column: "AppUserId");
-			migrationBuilder.Sql(@"
+            migrationBuilder.Sql(@"
             INSERT INTO AspNetRoles (Id, Name, NormalizedName)
             VALUES 
             ('1', 'Admin', 'ADMIN'),
             ('2', 'User', 'USER');
             
         ");
-		}
+        }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -289,7 +289,7 @@ namespace ICinema.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Card");
+                name: "Cards");
         }
     }
 }
