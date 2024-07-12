@@ -61,5 +61,20 @@ namespace ICinema.Repositories
 		{
 			return await _userManager.GetUserAsync(user);
 		}
-	}
+
+        public async Task<bool> EditPhoneNumber(AppUser user, string phoneNumber)
+        {
+            user.PhoneNumber = phoneNumber;
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
+
+        }
+
+        public async Task<bool> EditCardInfo(AppUser user, string cardInfo)
+        {
+            user.CardInfo = cardInfo;
+			var result = await _userManager.UpdateAsync(user);
+			return result.Succeeded;
+        }
+    }
 }

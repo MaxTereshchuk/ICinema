@@ -4,6 +4,7 @@
     ViewData["Title"] = "Personal office";
 }
 <head>
+    
     <style>
         
         .card {
@@ -12,12 +13,8 @@
             position: relative;
             color:white;
         }
-        .col{
-            
-            display: flex;
-            align-items: center;
-            
-        }
+
+        
     </style>
 </head>
 <body>
@@ -48,42 +45,38 @@
 
         <div class="card mt-4">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-6 d-flex align-items-center">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-8">
                         <h4 class="card-title">Ваша електронна адреса: @Model.Email</h4>
-                    </div>
-                    <div class="col-6 d-flex align-items-center">
-                        <a asp-action="Index">(Редагувати)</a>
-                    </div>
-                    
-                    
+                    </div>                     
                 </div>
-                <div class="row">
-                    <div class="col-6 d-flex align-items-center">
-                        <h4 class="card-title mt-4">Ваш номер телефону: @Model.PhoneNumber</h4>
+                <div class="row  d-flex align-items-center justify-content-between">
+                    <div class="col-8">
+                        <h4 class="card-title ">Ваш номер телефону: @Model.PhoneNumber</h4>
                     </div>
-                    <div class="col-6 d-flex align-items-center">
-                        <a asp-action="Index">(Редагувати)</a>
+                    <div class="col-4">       
+                            <a asp-controller="AppUser" asp-action="EditPhoneNumber">(Edit)</a>
                     </div>
-                </div>
-                
+                </div>               
             </div>
         </div>
-
+       
         <div class="card mt-4">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-6 d-flex align-items-center">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-12">
                         <h4 class="card-title">Ваш Баланс: @Model.Balance грн</h4>
                     </div>
                     
                 </div>
-                <div class="row">
-                    <div class="col-6 d-flex align-items-center">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-8">
                         <h4 class="card-title">Ваша картка</h4>
                     </div>
-                    <div class="col-6 d-flex align-items-center">
-                        <a asp-action="Index">(Редагувати)</a>
+                    <div class="col-4">
+                        
+                            <a asp-controller="AppUser" asp-action="EditCardInfo">(Edit)</a>
+                        
                     </div>
                 </div>
                 

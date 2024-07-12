@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Андрей\source\repos\ICinema\ICinema
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Андрей/source/repos/ICinema/ICinema/Views/AppUser/EditPhoneNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlclxFZGl0UGhvbmVOdW1iZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Андрей/source/repos/ICinema/ICinema/Views/AppUser/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

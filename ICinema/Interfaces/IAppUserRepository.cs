@@ -14,6 +14,8 @@ namespace ICinema.Interfaces
         public Task<Microsoft.AspNetCore.Identity.SignInResult> CheckPasswordSignIn(AppUser user, LoginVM loginVM);
         public Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateUser(AppUser user, string password);
         public Task<bool> LogOut();
+        public Task<bool> EditPhoneNumber(AppUser user, string phoneNumber);
+        public Task<bool> EditCardInfo(AppUser user, string cardInfo);
         
 
 	}

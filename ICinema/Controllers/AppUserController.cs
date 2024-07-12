@@ -111,5 +111,26 @@ namespace ICinema.Controllers
 			bool isLogOut = await _appUserRepository.LogOut();
 			return RedirectToAction("Index", "Home");
 		}
+		public IActionResult EditPhoneNumber()
+		{
+			return View();
+		}
+		[HttpPost]
+		public async Task<IActionResult> EditPhoneNumber(EditPhoneNumberVM phoneNumberVM)
+		{
+			var user = await _appUserRepository.GetUser(User);
+			if (user != null) {
+				var result = await _appUserRepository.EditPhoneNumber(user, phoneNumberVM.PhoneNumber);
+				if (result)
+				{
+					return RedirectToAction("Index");
+				}
+				return BadRequest();
+			}
+			return NotFound();			
+		}
+		
+
+
 	}
 }
