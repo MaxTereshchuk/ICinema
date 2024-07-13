@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "rww1rYn34o8=",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Source\\Repos\\ICinema\\ICinema\\ICinema.csproj",
+=======
+  "dgSpecHash": "LxKniDtw0qQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\ICinema.csproj",
+>>>>>>> test-branch
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

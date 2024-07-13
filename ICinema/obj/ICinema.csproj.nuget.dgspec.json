@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\user\\Source\\Repos\\ICinema\\ICinema\\ICinema.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\user\\Source\\Repos\\ICinema\\ICinema\\ICinema.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\user\\Source\\Repos\\ICinema\\ICinema\\obj\\",
+=======
+    "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\ICinema.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\ICinema.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\ICinema.csproj",
+        "projectName": "ICinema",
+        "projectPath": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\ICinema.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\obj\\",
+>>>>>>> test-branch
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
