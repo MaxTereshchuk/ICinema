@@ -2,6 +2,7 @@ using ICinema.Data;
 using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.Repositories;
+using ICinema.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -18,6 +19,8 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 });
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDBContext>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();

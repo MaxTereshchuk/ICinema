@@ -16,6 +16,7 @@ namespace ICinema.Interfaces
         public Task<bool> LogOut();
         public Task<Microsoft.AspNetCore.Identity.IdentityResult> EditPhoneNumber(AppUser user, string phoneNumber);
         public Task<Microsoft.AspNetCore.Identity.IdentityResult> EditCard(AppUser user, Card card);
+        public Task<bool> SendEmail(string email);
         
 
 	}

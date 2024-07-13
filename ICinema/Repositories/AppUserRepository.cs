@@ -14,11 +14,13 @@ namespace ICinema.Repositories
 		private readonly UserManager<AppUser> _userManager;
 		private readonly SignInManager<AppUser> _signInManager;
 		private readonly AppDBContext _appDBContext;
-		public AppUserRepository(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDBContext appDBContext)
+		private readonly IEmailSender _emailSender;
+		public AppUserRepository(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDBContext appDBContext, IEmailSender emailSender)
 		{
 			_userManager = userManager;
 			_signInManager = signInManager;
 			_appDBContext = appDBContext;
+			_emailSender = emailSender;
 		}
 
 		public async Task<AppUser> GetByEmail(string email)
@@ -81,7 +83,10 @@ namespace ICinema.Repositories
 			var result = await _userManager.UpdateAsync(user);
 			return result;
         }
-
+		public async Task<bool> SendEmail(string email)
+		{		
+			return await _emailSender.SendEmailAsync(email, "Confirm your email", "Hello");
+        }
 		
 	}
 }

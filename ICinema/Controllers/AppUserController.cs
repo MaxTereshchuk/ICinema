@@ -2,6 +2,7 @@
 using ICinema.Models;
 using ICinema.Repositories;
 using ICinema.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -43,7 +44,8 @@ namespace ICinema.Controllers
 		}
 		
 		[HttpPost]
-		public async Task<IActionResult> Login(LoginVM loginVM)
+        
+        public async Task<IActionResult> Login(LoginVM loginVM)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -53,7 +55,8 @@ namespace ICinema.Controllers
 			
 			if (user != null) 
 			{
-				bool isPasswordCorrect = await _appUserRepository.CheckPassword(user, loginVM);
+                
+                bool isPasswordCorrect = await _appUserRepository.CheckPassword(user, loginVM);
 				if (isPasswordCorrect) 
 				{
 					var result =  await _appUserRepository.CheckPasswordSignIn(user, loginVM);
@@ -77,7 +80,8 @@ namespace ICinema.Controllers
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> Register(RegisterVM registerVM)
+        
+        public async Task<IActionResult> Register(RegisterVM registerVM)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -95,7 +99,8 @@ namespace ICinema.Controllers
 				Email=registerVM.Email,
 				UserName=registerVM.Email
 			};
-			var newUserResponse= await _appUserRepository.CreateUser(newUser, registerVM.Password);
+            var isDelivared = _appUserRepository.SendEmail(user.Email);
+            var newUserResponse= await _appUserRepository.CreateUser(newUser, registerVM.Password);
 			if (newUserResponse.Succeeded)
 			{
 				return RedirectToAction("Index");
