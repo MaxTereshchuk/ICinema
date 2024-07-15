@@ -14,7 +14,9 @@ namespace ICinema.Data
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Card> Cards { get; set; }
 
-        
-        
+        public DbSet<Film> Films { get; set; }
+
+
+
     }
 }

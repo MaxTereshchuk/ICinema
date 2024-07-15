@@ -4,6 +4,7 @@ using ICinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICinema.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240712120833_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,12 +31,6 @@ namespace ICinema.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("CardId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -82,8 +79,6 @@ namespace ICinema.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CardId");
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -94,65 +89,8 @@ namespace ICinema.Migrations
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
-			modelBuilder.Entity("ICinema.Models.Card", b =>
-			{
-				b.Property<int>("Id")
-					.ValueGeneratedOnAdd()
-					.HasColumnType("int");
 
-				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-				b.Property<int>("CVV")
-					.HasColumnType("int");
-
-				b.Property<string>("CardHolderName")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
-
-				b.Property<string>("CardName")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
-
-				b.Property<string>("CardNumber")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
-
-				b.Property<DateTime>("ExpiryDate")
-					.HasColumnType("datetime2");
-
-				b.HasKey("Id");
-
-				b.ToTable("Cards");
-			});
-
-
-			modelBuilder.Entity("ICinema.Models.Films", b =>
-			{
-				b.Property<int>("Id")
-					.ValueGeneratedOnAdd()
-					.HasColumnType("int");
-
-				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-				b.Property<string>("Image")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
-
-				b.Property<string>("Time")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
-
-				b.Property<string>("Title")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
-
-				b.HasKey("Id");
-
-				b.ToTable("Films");
-			});
-
-
-			modelBuilder.Entity("ICinema.Models.Ticket", b =>
+            modelBuilder.Entity("ICinema.Models.Films", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,16 +98,30 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Films");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Ticket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -177,12 +129,13 @@ namespace ICinema.Migrations
                     b.Property<int>("RowNumber")
                         .HasColumnType("int");
 
+                    b.Property<int>("ScreaningId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SeatNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.ToTable("Tickets");
                 });
@@ -320,26 +273,6 @@ namespace ICinema.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ICinema.Models.AppUser", b =>
-                {
-                    b.HasOne("ICinema.Models.Card", "Card")
-                        .WithMany()
-                        .HasForeignKey("CardId");
-
-                    b.Navigation("Card");
-                });
-
-            modelBuilder.Entity("ICinema.Models.Ticket", b =>
-                {
-                    b.HasOne("ICinema.Models.AppUser", "AppUser")
-                        .WithMany("MyTickets")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -389,11 +322,6 @@ namespace ICinema.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ICinema.Models.AppUser", b =>
-                {
-                    b.Navigation("MyTickets");
                 });
 #pragma warning restore 612, 618
         }

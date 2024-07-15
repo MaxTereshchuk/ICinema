@@ -26,6 +26,11 @@ builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 var app = builder.Build();
 
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
+{
+    //await Seed.SeedUsersAndRolesAsync(app);
+    Seed.SeedData(app);
+}
 
 if (!app.Environment.IsDevelopment())
 {
