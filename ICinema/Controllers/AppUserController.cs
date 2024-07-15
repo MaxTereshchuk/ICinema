@@ -94,13 +94,9 @@ namespace ICinema.Controllers
 				return View(registerVM);
 			}
 
-			var newUser = new AppUser()
-			{
-				Email=registerVM.Email,
-				UserName=registerVM.Email
-			};
-            var isDelivared = _appUserRepository.SendEmail(user.Email);
-            var newUserResponse= await _appUserRepository.CreateUser(newUser, registerVM.Password);
+			
+            
+            var newUserResponse= await _appUserRepository.CreateUser(registerVM);
 			if (newUserResponse.Succeeded)
 			{
 				return RedirectToAction("Index");

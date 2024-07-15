@@ -36,13 +36,23 @@ namespace ICinema.Repositories
 			return await _signInManager.PasswordSignInAsync(user, loginVM.Password, false,false);
 		}
 
-		public async Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateUser(AppUser user, string password)
+		public async Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateUser(RegisterVM registerVM)
 		{
-			var newUserResponse = await _userManager.CreateAsync(user, password);
+			var newUser = new AppUser()
+			{
+				Email = registerVM.Email,
+				UserName = registerVM.Email,
+
+
+			};
+			var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 			if (newUserResponse.Succeeded)
 			{
-				await _userManager.AddToRoleAsync(user, UserRoles.User);
-				
+				if(registerVM.IsAdmin) 
+					await _userManager.AddToRoleAsync(newUser, UserRoles.Admin);
+				else
+					await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+
 			}
 			return newUserResponse;
 		}
