@@ -33,8 +33,8 @@ namespace ICinema.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("CardInfo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("CardId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -82,6 +82,8 @@ namespace ICinema.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CardId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -92,33 +94,65 @@ namespace ICinema.Migrations
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
+			modelBuilder.Entity("ICinema.Models.Card", b =>
+			{
+				b.Property<int>("Id")
+					.ValueGeneratedOnAdd()
+					.HasColumnType("int");
 
-            modelBuilder.Entity("ICinema.Models.Films", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+				b.Property<int>("CVV")
+					.HasColumnType("int");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+				b.Property<string>("CardHolderName")
+					.IsRequired()
+					.HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+				b.Property<string>("CardName")
+					.IsRequired()
+					.HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+				b.Property<string>("CardNumber")
+					.IsRequired()
+					.HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+				b.Property<DateTime>("ExpiryDate")
+					.HasColumnType("datetime2");
 
-                    b.ToTable("Films");
-                });
+				b.HasKey("Id");
 
-            modelBuilder.Entity("ICinema.Models.Ticket", b =>
+				b.ToTable("Cards");
+			});
+
+
+			modelBuilder.Entity("ICinema.Models.Films", b =>
+			{
+				b.Property<int>("Id")
+					.ValueGeneratedOnAdd()
+					.HasColumnType("int");
+
+				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+				b.Property<string>("Image")
+					.IsRequired()
+					.HasColumnType("nvarchar(max)");
+
+				b.Property<string>("Time")
+					.IsRequired()
+					.HasColumnType("nvarchar(max)");
+
+				b.Property<string>("Title")
+					.IsRequired()
+					.HasColumnType("nvarchar(max)");
+
+				b.HasKey("Id");
+
+				b.ToTable("Films");
+			});
+
+
+			modelBuilder.Entity("ICinema.Models.Ticket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -284,6 +318,15 @@ namespace ICinema.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("ICinema.Models.AppUser", b =>
+                {
+                    b.HasOne("ICinema.Models.Card", "Card")
+                        .WithMany()
+                        .HasForeignKey("CardId");
+
+                    b.Navigation("Card");
                 });
 
             modelBuilder.Entity("ICinema.Models.Ticket", b =>

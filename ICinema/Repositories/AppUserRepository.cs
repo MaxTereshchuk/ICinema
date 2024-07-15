@@ -5,6 +5,7 @@ using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ICinema.Repositories
 {
@@ -13,11 +14,13 @@ namespace ICinema.Repositories
 		private readonly UserManager<AppUser> _userManager;
 		private readonly SignInManager<AppUser> _signInManager;
 		private readonly AppDBContext _appDBContext;
-		public AppUserRepository(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDBContext appDBContext)
+		private readonly IEmailSender _emailSender;
+		public AppUserRepository(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDBContext appDBContext, IEmailSender emailSender)
 		{
 			_userManager = userManager;
 			_signInManager = signInManager;
 			_appDBContext = appDBContext;
+			_emailSender = emailSender;
 		}
 
 		public async Task<AppUser> GetByEmail(string email)
@@ -33,13 +36,23 @@ namespace ICinema.Repositories
 			return await _signInManager.PasswordSignInAsync(user, loginVM.Password, false,false);
 		}
 
-		public async Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateUser(AppUser user, string password)
+		public async Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateUser(RegisterVM registerVM)
 		{
-			var newUserResponse = await _userManager.CreateAsync(user, password);
+			var newUser = new AppUser()
+			{
+				Email = registerVM.Email,
+				UserName = registerVM.Email,
+
+
+			};
+			var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 			if (newUserResponse.Succeeded)
 			{
-				await _userManager.AddToRoleAsync(user, UserRoles.User);
-				
+				if(registerVM.IsAdmin) 
+					await _userManager.AddToRoleAsync(newUser, UserRoles.Admin);
+				else
+					await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+
 			}
 			return newUserResponse;
 		}
@@ -57,9 +70,33 @@ namespace ICinema.Repositories
 			}
 		}
 
-		public async Task<AppUser> GetUser(ClaimsPrincipal user)
+		public async Task<AppUser> GetUser(ClaimsPrincipal User)
 		{
-			return await _userManager.GetUserAsync(user);
+			 var user = await _userManager.GetUserAsync(User);
+			if (user == null)
+				return user;
+			
+			return await _appDBContext.AppUsers.Include(u=>u.Card).FirstOrDefaultAsync(u => u.Id == user.Id);
 		}
+
+        public async Task<Microsoft.AspNetCore.Identity.IdentityResult> EditPhoneNumber(AppUser user, string phoneNumber)
+        {
+            user.PhoneNumber = phoneNumber;
+            var result = await _userManager.UpdateAsync(user);
+            return result;
+
+        }
+
+        public async Task<Microsoft.AspNetCore.Identity.IdentityResult> EditCard(AppUser user, Card card)
+        {
+            user.Card = card;
+			var result = await _userManager.UpdateAsync(user);
+			return result;
+        }
+		public async Task<bool> SendEmail(string email)
+		{		
+			return await _emailSender.SendEmailAsync(email, "Confirm your email", "Hello");
+        }
+		
 	}
 }

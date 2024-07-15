@@ -1,10 +1,14 @@
 {
   "Version": 1,
 <<<<<<< HEAD
+  "Hash": "sDMxIlL/R3xqi9T9cXSD7sVrHhp+qu6DB6DxDkO8YvI=",
+=======
+<<<<<<< HEAD
   "Hash": "P/Qc5Gu/pjswE3e+jWvUSahhUseYJM6jl1fjAUXrERM=",
 =======
   "Hash": "LAPZTvdQP9dwGYlKeMO0KKJ+NLc6E4axFSRJW+PEZtk=",
 >>>>>>> test-branch
+>>>>>>> main
   "Source": "ICinema",
   "BasePath": "_content/ICinema",
   "Mode": "Default",
@@ -15,16 +19,26 @@
       "Name": "ICinema\\wwwroot",
       "Source": "ICinema",
 <<<<<<< HEAD
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "ContentRoot": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 =======
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ICinema.styles.css",
+      "SourceId": "ICinema",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+=======
 <<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ICinema.styles.css",
       "SourceId": "ICinema",
@@ -36,6 +50,7 @@
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "ICinema.styles.css",
       "AssetKind": "All",
@@ -49,12 +64,19 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
 <<<<<<< HEAD
+      "OriginalItemSpec": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ICinema.styles.css"
+=======
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ICinema.styles.css"
+>>>>>>> main
     },
     {
-      "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ICinema.bundle.scp.css",
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ICinema.bundle.scp.css",
       "SourceId": "ICinema",
       "SourceType": "Computed",
+<<<<<<< HEAD
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+=======
       "ContentRoot": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
 =======
       "OriginalItemSpec": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ICinema.styles.css"
@@ -65,6 +87,7 @@
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "ICinema.bundle.scp.css",
       "AssetKind": "All",
@@ -78,12 +101,19 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
 <<<<<<< HEAD
+      "OriginalItemSpec": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ICinema.bundle.scp.css"
+=======
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ICinema.bundle.scp.css"
+>>>>>>> main
     },
     {
-      "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\css\\site.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
+<<<<<<< HEAD
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
       "ContentRoot": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 =======
       "OriginalItemSpec": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ICinema.bundle.scp.css"
@@ -94,6 +124,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -110,6 +141,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\favicon.ico",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\favicon.ico",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -120,6 +157,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -136,6 +174,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\js\\site.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\js\\site.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -146,6 +190,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -162,6 +207,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -172,6 +223,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -188,6 +240,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -198,6 +256,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -214,6 +273,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -224,6 +289,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -240,6 +306,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -250,6 +322,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -266,6 +339,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -276,6 +355,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -292,6 +372,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -302,6 +388,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -318,6 +405,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -328,6 +421,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -344,6 +438,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -354,6 +454,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -370,6 +471,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -380,6 +487,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -396,6 +504,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -406,6 +520,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -422,6 +537,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -432,6 +553,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -448,6 +570,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -458,6 +586,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -474,6 +603,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -484,6 +619,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -500,6 +636,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -510,6 +652,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -526,6 +669,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -536,6 +685,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -552,6 +702,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -562,6 +718,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -578,6 +735,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -588,6 +751,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -604,6 +768,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -614,6 +784,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -630,6 +801,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -640,6 +817,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -656,6 +834,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -666,6 +850,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -682,6 +867,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -692,6 +883,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -708,6 +900,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -718,6 +916,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -734,6 +933,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -744,6 +949,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -760,6 +966,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -770,6 +982,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -786,6 +999,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -796,6 +1015,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -812,6 +1032,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -822,6 +1048,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -838,6 +1065,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -848,6 +1081,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -864,6 +1098,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -874,6 +1114,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -890,6 +1131,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -900,6 +1147,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -916,6 +1164,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -926,6 +1180,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -942,6 +1197,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -952,6 +1213,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -968,6 +1230,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -978,6 +1246,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -994,6 +1263,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1004,6 +1279,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1020,6 +1296,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1030,6 +1312,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1046,6 +1329,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1056,6 +1345,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1072,6 +1362,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1082,6 +1378,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1098,6 +1395,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1108,6 +1411,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1124,6 +1428,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1134,6 +1444,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1150,6 +1461,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1160,6 +1477,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1176,6 +1494,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1186,6 +1510,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1202,6 +1527,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1212,6 +1543,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1228,6 +1560,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1238,6 +1576,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1254,6 +1593,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1264,6 +1609,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1280,6 +1626,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1290,6 +1642,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1306,6 +1659,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1316,6 +1675,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1332,6 +1692,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1342,6 +1708,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1358,6 +1725,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1368,6 +1741,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1384,6 +1758,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1394,6 +1774,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1410,6 +1791,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1420,6 +1807,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1436,6 +1824,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1446,6 +1840,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1462,6 +1857,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1472,6 +1873,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1488,6 +1890,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1498,6 +1906,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1514,6 +1923,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1524,6 +1939,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1540,6 +1956,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1550,6 +1972,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1566,6 +1989,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1576,6 +2005,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1592,6 +2022,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1602,6 +2038,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1618,6 +2055,12 @@
     },
     {
 <<<<<<< HEAD
+      "Identity": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "ICinema",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Андрей\\Source\\Repos\\ICinema\\ICinema\\wwwroot\\",
+=======
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Андрей\\source\\repos\\ICinema\\ICinema\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "ICinema",
       "SourceType": "Discovered",
@@ -1628,6 +2071,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\source\\repos\\ICinema\\ICinema\\wwwroot\\",
 >>>>>>> test-branch
+>>>>>>> main
       "BasePath": "_content/ICinema",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

@@ -1,0 +1,31 @@
+﻿@using ICinema.ViewModels
+@model EditPhoneNumberVM
+@{
+	ViewData["Title"] = "Edit Phone Number Page";
+}
+<body>
+	<h2>@ViewData["Title"]</h2>
+	<form method="post">
+		<div class="form-group">
+			<label asp-for="PhoneNumber" class="control-label"></label>
+			<input asp-for="PhoneNumber" class="form-control" placeholder="Enter new Phone Number"> </input>
+			<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<button style="width:100%" type="submit" class="btn btn-primary">Edit</button>
+			</div>
+			<div class="col-6">
+				<a style="width:100%" class="btn btn-primary" asp-controller="AppUser" asp-action="Index">Cancel</a>
+			</div>
+
+		</div>
+
+
+
+	</form>
+	<div>
+		<span>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</span>
+	</div>
+</body>
+

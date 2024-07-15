@@ -18,5 +18,8 @@ namespace ICinema.ViewModels
 		[DataType(DataType.Password)]
 		[Compare("Password",ErrorMessage= "Password do not match")]
 		public string ConfirmPassword { get; set; }
+
+		[Display(Name="Admin")]
+		public bool IsAdmin { get; set; }
 	}
 }
