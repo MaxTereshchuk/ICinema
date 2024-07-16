@@ -12,7 +12,6 @@ namespace ICinema.Data
         }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Film> Films { get; set; }
-
-
+        public DbSet<Schedule> Schedules { get; set; }
     }
 }
