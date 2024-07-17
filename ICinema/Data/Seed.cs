@@ -45,7 +45,3 @@ namespace ICinema.Data
         }
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> main
