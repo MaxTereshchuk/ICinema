@@ -1,16 +1,5 @@
 ﻿using ICinema.Models;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Identity;
-
-namespace ICinema.Data
-{
-	public class Seed
-	{
-		
-		
-	}
-}
-=======
 using System.Net;
 
 namespace ICinema.Data
@@ -54,4 +43,3 @@ namespace ICinema.Data
         }
     }
 }
->>>>>>> test-branch

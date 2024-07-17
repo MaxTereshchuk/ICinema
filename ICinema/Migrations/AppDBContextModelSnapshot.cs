@@ -94,65 +94,64 @@ namespace ICinema.Migrations
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
-			modelBuilder.Entity("ICinema.Models.Card", b =>
-			{
-				b.Property<int>("Id")
-					.ValueGeneratedOnAdd()
-					.HasColumnType("int");
 
-				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+            modelBuilder.Entity("ICinema.Models.Card", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-				b.Property<int>("CVV")
-					.HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-				b.Property<string>("CardHolderName")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
+                    b.Property<int>("CVV")
+                        .HasColumnType("int");
 
-				b.Property<string>("CardName")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
+                    b.Property<string>("CardHolderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-				b.Property<string>("CardNumber")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
+                    b.Property<string>("CardName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-				b.Property<DateTime>("ExpiryDate")
-					.HasColumnType("datetime2");
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-				b.HasKey("Id");
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
 
-				b.ToTable("Cards");
-			});
+                    b.HasKey("Id");
 
+                    b.ToTable("Cards");
+                });
 
-			modelBuilder.Entity("ICinema.Models.Films", b =>
-			{
-				b.Property<int>("Id")
-					.ValueGeneratedOnAdd()
-					.HasColumnType("int");
+            modelBuilder.Entity("ICinema.Models.Film", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-				b.Property<string>("Image")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-				b.Property<string>("Time")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-				b.Property<string>("Title")
-					.IsRequired()
-					.HasColumnType("nvarchar(max)");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-				b.HasKey("Id");
+                    b.HasKey("Id");
 
-				b.ToTable("Films");
-			});
+                    b.ToTable("Films");
+                });
 
-
-			modelBuilder.Entity("ICinema.Models.Ticket", b =>
+            modelBuilder.Entity("ICinema.Models.Ticket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

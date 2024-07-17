@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICinema.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20240712190821_Identity")]
+    [Migration("20240715152225_Identity")]
     partial class Identity
     {
         /// <inheritdoc />
@@ -127,6 +127,31 @@ namespace ICinema.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cards");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Film", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Films");
                 });
 
             modelBuilder.Entity("ICinema.Models.Ticket", b =>
