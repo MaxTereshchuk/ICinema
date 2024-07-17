@@ -4,9 +4,9 @@
 	ViewData["Title"] = "Register page";
 }
 <h2>@ViewData["Title"]</h2>
-<form method="post">
+<form method="post" asp-controller="AppUser" asp-action="Register">
 
-	<div class="form-group" asp-controller="AppUser" asp-action="Register">
+	<div class="form-group" >
 		<label asp-for="Email" class="control-label"></label>
 		<input asp-for="Email" class="form-control" placeholder="Enter Email"> </input>
 		<span asp-validation-for="Email" class="text-danger"></span>

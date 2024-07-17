@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ICinema.Controllers
 {
-    public class AppUserController : Controller
+	
+	public class AppUserController : Controller
     {
 
 		private readonly IAppUserRepository _appUserRepository;
