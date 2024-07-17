@@ -43,6 +43,36 @@ namespace ICinema.Controllers
             }
             return View(createTicketVM);
         }
+        public IActionResult SettingUpSendingService()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SettingUpSendingService(EmailSettingsVM emailSettingsVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(emailSettingsVM);
+            }
+            
+            var emailSettings = new EmailSettings()
+            {
+                SmtpServer = "smtp.gmail.com",
+                SmtpPort = 587,
+                SmtpUsername = emailSettingsVM.SmtpUsername,
+                SmtpPassword = emailSettingsVM.SmtpPassword,
+                SenderEmail = emailSettingsVM.SenderEmail,
+                SenderName = "ICinema",
+            };
+            var _isAdd = await _adminRepository.AddEmailSettings(emailSettings);
+            if (_isAdd)
+            {
+                return RedirectToAction("Index", "Home");
 
+            }
+            ModelState.AddModelError(String.Empty, "Can't Add new EmailSettings");
+            return View(emailSettingsVM);
+
+        }
     }
 }

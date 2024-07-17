@@ -1,20 +1,27 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using ICinema.Data;
 using ICinema.Interfaces;
 using ICinema.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ICinema.Services
 {
     public class EmailSender : IEmailSender
     {
         private readonly IConfiguration _configuration;
-        public EmailSender(IConfiguration configuration)
+        private readonly AppDBContext _appDBContext;
+        public EmailSender(IConfiguration configuration, AppDBContext appDBContext)
         {
             _configuration = configuration;
+            _appDBContext = appDBContext;
         }
         public async Task<bool> SendEmailAsync(string email, string subject, string message)
         {
-            var emailSettings = _configuration.GetSection("EmailSettings").Get<EmailSettings>();
+            var emailSettings =await _appDBContext.EmailSettings.FirstOrDefaultAsync(e=>e.Id==1);
+            if(emailSettings == null) 
+                return false;
+
             var client =  new SmtpClient(emailSettings.SmtpServer, emailSettings.SmtpPort)
             {
                 Credentials = new NetworkCredential(emailSettings.SmtpUsername, emailSettings.SmtpPassword),
