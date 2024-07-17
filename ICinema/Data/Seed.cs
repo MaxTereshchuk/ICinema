@@ -1,9 +1,7 @@
 ﻿using ICinema.Models;
-<<<<<<< HEAD
-using Microsoft.AspNetCore.Identity;
-=======
 
->>>>>>> main
+using Microsoft.AspNetCore.Identity;
+
 using System.Net;
 
 namespace ICinema.Data
