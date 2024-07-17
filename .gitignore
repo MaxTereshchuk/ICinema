@@ -1,6 +1,7 @@
+
 # Build and release folders
-bin/
-obj/
+ICinema/bin/
+ICinema/obj/
 
 # User-specific files
 *.rsuser
@@ -25,3 +26,4 @@ obj/
 
 # Others
 .vs/
+
