@@ -1,0 +1,50 @@
+﻿@using ICinema.ViewModels
+@model CreateTicketVM
+@{
+	ViewData["Title"] = "Creation Ticket Page";
+
+}
+<body>
+	<h2>@ViewData["Title"]</h2>
+	<form method="post" asp-action="CreateTicket" asp-controller="Admin">
+		<div class="form-group" >
+			<label asp-for=@Model.MovieName class="control-label"></label>
+			<input asp-for=@Model.MovieName class="form-control" placeholder="Enter Name of Movie"></input>
+			<span asp-validation-for=@Model.MovieName class="text-danger"></span>
+		</div>
+		<div class="form-group" >
+			<label asp-for=@Model.Date class="control-label"></label>
+			<input asp-for=@Model.Date class="form-control" placeholder="Enter Name of Movie"></input>
+			<span asp-validation-for=@Model.Date class="text-danger"></span>
+		</div>
+		<div class="form-group" >
+			<label asp-for=@Model.RowNumber class="control-label"></label>
+			<input asp-for=@Model.RowNumber class="form-control" placeholder="Enter Number of Row"></input>
+			<span asp-validation-for=@Model.RowNumber class="text-danger"></span>
+		</div>
+		<div class="form-group" >
+			<label asp-for=@Model.SeatNumber class="control-label"></label>
+			<input asp-for=@Model.SeatNumber class="form-control" placeholder="Enter Number of Seat"></input>
+			<span asp-validation-for=@Model.SeatNumber class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for=@Model.Price class="control-label"></label>
+			<input asp-for=@Model.Price class="form-control" placeholder="Enter Price"></input>
+			<span asp-validation-for=@Model.Price class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for=@Model.ImageUrl class="control-label"></label>
+			<input asp-for=@Model.ImageUrl class="form-control" placeholder="Enter Url of Image"></input>
+			<span asp-validation-for=@Model.ImageUrl class="text-danger"></span>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<button style="width:100%" type="submit" class="btn btn-primary">Create</button>
+			</div>
+			<div class="col-6">
+				<a style="width:100%" class="btn btn-primary" asp-controller="Home" asp-action="Index">Cancel</a>
+			</div>
+
+		</div>
+	</form>
+</body>

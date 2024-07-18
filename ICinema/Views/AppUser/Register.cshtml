@@ -1,0 +1,44 @@
+﻿@using ICinema.ViewModels
+@model RegisterVM
+@{
+	ViewData["Title"] = "Register page";
+}
+<h2>@ViewData["Title"]</h2>
+<form method="post" asp-controller="AppUser" asp-action="Register">
+
+	<div class="form-group" >
+		<label asp-for="Email" class="control-label"></label>
+		<input asp-for="Email" class="form-control" placeholder="Enter Email"> </input>
+		<span asp-validation-for="Email" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Password" class="control-label"></label>
+		<input asp-for="Password" class="form-control" placeholder="Enter Password"> </input>
+		<span asp-validation-for="Password" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="ConfirmPassword" class="control-label"></label>
+		<input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password"> </input>
+		<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+	</div>
+	<div class="form-group form-check">
+		<input asp-for="IsAdmin" class="form-check-input" />
+		<label asp-for="IsAdmin" class="form-check-label"></label>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<button style="width:100%" type="submit" class="btn btn-primary">Register</button>
+		</div>
+		<div class="col-6">
+			<a style="width:100%" class="btn btn-primary" asp-controller="AppUser" asp-action="Login">Sign In</a>
+		</div>
+
+	</div>
+
+
+
+</form>
+<div>
+	<span>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</span>
+</div>

@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 namespace ICinema.Models
 {
     public class AppUser: IdentityUser
     {
-        ICollection<Ticket> Tickets { get; set; }
+       
+        public decimal Balance { get; set; }
+        
+        public ICollection<Ticket> MyTickets { get; set; }
+
+        public Card? Card { get; set; }
     }
 }

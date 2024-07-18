@@ -1,2 +1,29 @@
-.vs/
+
+# Build and release folders
+ICinema/bin/
 ICinema/obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.log
+*.vspscc
+*.vssscc
+*.csproj.user
+*.csproj.FileListAbsolute.txt
+*.pdb
+
+# Temporary files
+*.tmp
+*.temp
+*.tmp.*
+*.temp.*
+
+# Others
+.vs/
+

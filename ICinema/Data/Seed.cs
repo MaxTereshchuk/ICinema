@@ -1,4 +1,7 @@
 ﻿using ICinema.Models;
+
+using Microsoft.AspNetCore.Identity;
+
 using System.Net;
 
 namespace ICinema.Data
@@ -21,19 +24,31 @@ namespace ICinema.Data
                         {
                             Title = "Forsage",
                             Image = "https://itc.ua/wp-content/uploads/2023/04/InShot_20230423_231506532.jpg?quality=82&strip=1&resize=640%2C360",
-                            Time = "16:30",
+                            Schedules = new List<Schedule>()
+                            {
+                                new Schedule() { Day = DateTime.Now.AddDays(1) },
+                                new Schedule() { Day = DateTime.Now.AddDays(3) }
+                            }
                          },
                         new Film()
                         {
                             Title = "Willi wonka",
                             Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuM4TZfM_suitPIG2QVfhUop5ZFM2XYNjgfQ&s?quality=82&strip=1&resize=640%2C360",
-                            Time = "12:30",
+                            Schedules = new List<Schedule>()
+                            {
+                                new Schedule() { Day = DateTime.Now.AddDays(2) },
+                                new Schedule() { Day = DateTime.Now.AddDays(4) }
+                            }
                          },
                         new Film()
                         {
                             Title = "Interstellar",
                             Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScDZabZA1tsfV5Tr4_u4-7jftTOgch-7621w&s?quality=82&strip=1&resize=640%2C360",
-                            Time = "10:00",
+                            Schedules = new List<Schedule>()
+                            {
+                                new Schedule() { Day = DateTime.Now.AddDays(5) },
+                                new Schedule() { Day = DateTime.Now.AddDays(6) }
+                            }
                          }
                     });
                     context.SaveChanges();
@@ -41,5 +56,4 @@ namespace ICinema.Data
             }
         }
     }
-
 }

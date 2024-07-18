@@ -6,10 +6,9 @@ namespace ICinema.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public string Hall { get; set; }
-        public string Image { get; set; }
+        public DateTime Day { get; set; }
+        public ICollection<Screaning> Screanings { get; set; }
+        public int FilmId { get; set; }
+        public Film Film { get; set; }
     }
 }
