@@ -1,7 +1,6 @@
 ﻿using ICinema.Models;
-
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Identity;
 using System.Net;
 
 namespace ICinema.Data
