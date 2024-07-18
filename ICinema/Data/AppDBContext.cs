@@ -18,5 +18,8 @@ namespace ICinema.Data
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Screaning> Screanings { get; set; }
         public DbSet<Hall> Halls { get; set; }
+
+
+
     }
 }
