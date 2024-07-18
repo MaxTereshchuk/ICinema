@@ -15,6 +15,9 @@ namespace ICinema.Data
         public DbSet<Card> Cards { get; set; }
 
         public DbSet<Film> Films { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Screaning> Screanings { get; set; }
+        public DbSet<Hall> Halls { get; set; }
 
 
 

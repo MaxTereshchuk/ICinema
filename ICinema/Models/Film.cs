@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace ICinema.Models
 {
     public class Film
@@ -7,7 +8,6 @@ namespace ICinema.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }
-        public string Time { get; set; }
-
+        public ICollection<Schedule> Schedules { get; set; }
     }
 }

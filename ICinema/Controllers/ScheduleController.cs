@@ -4,18 +4,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ICinema.Controllers
 {
-    public class FilmController : Controller
+    public class ScheduleController : Controller
     {
         private readonly AppDBContext _context;
-        public FilmController(AppDBContext context)
+        public ScheduleController(AppDBContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            List<Film> films = _context.Films.ToList();
-            return View(films);
+            List<Schedule> schedules = _context.Schedules.ToList();
+            return View(schedules);
         }
     }
+
 }
