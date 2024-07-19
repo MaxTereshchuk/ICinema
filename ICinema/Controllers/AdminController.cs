@@ -74,5 +74,24 @@ namespace ICinema.Controllers
             return View(emailSettingsVM);
 
         }
+        public IActionResult CreateHall(HallVM hallVM)
+        {
+            if (hallVM.Seats == null)
+            {
+                hallVM = new HallVM()
+                {
+                    Rows = 1,
+                    Seats = new List<List<bool>>(),
+                };
+                hallVM.Seats.Add(new List<bool>());
+                return View(hallVM);
+
+            }
+            
+
+            
+            return View(hallVM);
+        }
+        
     }
 }

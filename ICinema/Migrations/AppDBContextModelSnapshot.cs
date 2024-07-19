@@ -174,6 +174,54 @@ namespace ICinema.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Films");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Hall", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("SeatsData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Halls");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Schedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Day")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FilmId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Hall")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Time")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -184,7 +232,35 @@ namespace ICinema.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Films");
+                    b.HasIndex("FilmId");
+
+                    b.ToTable("Schedules");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Screaning", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Day")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HallId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ScheduleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HallId");
+
+                    b.HasIndex("ScheduleId");
+
+                    b.ToTable("Screanings");
                 });
 
             modelBuilder.Entity("ICinema.Models.Ticket", b =>
@@ -225,6 +301,8 @@ namespace ICinema.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("ScreaningId");
 
                     b.ToTable("Tickets");
                 });
@@ -371,11 +449,47 @@ namespace ICinema.Migrations
                     b.Navigation("Card");
                 });
 
+            modelBuilder.Entity("ICinema.Models.Schedule", b =>
+                {
+                    b.HasOne("ICinema.Models.Film", "Film")
+                        .WithMany("Schedules")
+                        .HasForeignKey("FilmId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Film");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Screaning", b =>
+                {
+                    b.HasOne("ICinema.Models.Hall", "Hall")
+                        .WithMany()
+                        .HasForeignKey("HallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ICinema.Models.Schedule", "Schedule")
+                        .WithMany("Screanings")
+                        .HasForeignKey("ScheduleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hall");
+
+                    b.Navigation("Schedule");
+                });
+
             modelBuilder.Entity("ICinema.Models.Ticket", b =>
                 {
                     b.HasOne("ICinema.Models.AppUser", "AppUser")
                         .WithMany("MyTickets")
                         .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ICinema.Models.Screaning", null)
+                        .WithMany("Tickets")
+                        .HasForeignKey("ScreaningId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -436,6 +550,21 @@ namespace ICinema.Migrations
             modelBuilder.Entity("ICinema.Models.AppUser", b =>
                 {
                     b.Navigation("MyTickets");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Film", b =>
+                {
+                    b.Navigation("Schedules");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Schedule", b =>
+                {
+                    b.Navigation("Screanings");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Screaning", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,6 +6,7 @@ namespace ICinema.Models
     {
         [Key]
         public int Id { get; set; }
-        public int[] Matrix { get; set; }
+        
+        public string SeatsData { get; set; }
     }
 }
