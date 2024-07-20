@@ -191,7 +191,7 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("SeatsData")
+                    b.Property<string>("SeatsJson")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

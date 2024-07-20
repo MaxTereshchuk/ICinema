@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CloudinaryDotNet.Actions;
 
 namespace ICinema.Models
 {
@@ -7,6 +8,6 @@ namespace ICinema.Models
         [Key]
         public int Id { get; set; }
         
-        public string SeatsData { get; set; }
+        public string SeatsJson { get; set; }
     }
 }

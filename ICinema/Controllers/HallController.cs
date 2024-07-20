@@ -97,7 +97,18 @@ namespace ICinema.Controllers
             {
                 return View(hallVM);
             }
-            return View(hallVM);
+            Hall hall = new Hall()
+            {
+                SeatsJson = JsonSerializer.Serialize<List<List<Seat>>>(hallVM.Seats)
+            };
+            _hallRepository.AddAsync(hall);
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllHalls()
+        {
+            var halls=_hallRepository.GetAllHallsAsync();
+            return RedirectToAction("HallsPage", "Admin", halls);
         }
 	}
 }

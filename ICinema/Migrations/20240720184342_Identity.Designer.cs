@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICinema.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20240719103610_Identity")]
+    [Migration("20240720184342_Identity")]
     partial class Identity
     {
         /// <inheritdoc />
@@ -194,7 +194,7 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("SeatsData")
+                    b.Property<string>("SeatsJson")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
