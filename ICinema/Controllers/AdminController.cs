@@ -1,9 +1,11 @@
-﻿using ICinema.Interfaces;
+﻿using Azure.Core.Serialization;
+using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace ICinema.Controllers
 {
 	[Authorize(Policy = "AdminOnly")]
@@ -74,22 +76,24 @@ namespace ICinema.Controllers
             return View(emailSettingsVM);
 
         }
-        public IActionResult CreateHall(HallVM hallVM)
+        public IActionResult CreateHall()
         {
-            if (hallVM.Seats == null)
+            var hallVM= new HallVM();
+           
+            if (TempData["HallVM"] == null)
             {
+                
                 hallVM = new HallVM()
-                {
-                    Rows = 1,
-                    Seats = new List<List<bool>>(),
+                {          
+                    Seats = new List<List<Seat>>(),
                 };
-                hallVM.Seats.Add(new List<bool>());
+                hallVM.Seats.Add(new List<Seat>());
                 return View(hallVM);
 
             }
-            
 
-            
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(TempData["HallVM"].ToString());
             return View(hallVM);
         }
         

@@ -4,10 +4,22 @@ using ICinema.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using static System.Net.Mime.MediaTypeNames;
 using System.Text.Json;
+using ICinema.Data;
+using ICinema.Interfaces;
+
 namespace ICinema.Controllers
 {
     public class HallController : Controller
     {
+        private readonly  IHallRepository _hallRepository;
+
+        public HallController(IHallRepository hallRepository)
+        {
+            _hallRepository = hallRepository;
+        }
+
+
+
         /// <summary>
         /// This action designed for definite film's hall
         /// </summary>
@@ -18,35 +30,74 @@ namespace ICinema.Controllers
             return View();
         }
         [HttpPost]
-        public  IActionResult AddRow(HallVM hallVM, string SeatsJson)
+        public  IActionResult AddRow(string HallVMJson)
         {
-            hallVM.Seats = JsonSerializer.Deserialize<List<List<bool>>>(SeatsJson);
-            hallVM.Seats.Add(new List<bool>());
-            hallVM.Rows++;
-           
-            return RedirectToAction("CreateHall", "Admin", hallVM);
+            var hallVM=new HallVM();
+
+            hallVM= JsonSerializer.Deserialize<HallVM>(HallVMJson);
+            hallVM.Seats.Add(new List<Seat>());
+            
+            TempData["HallVM"] = JsonSerializer.Serialize(hallVM);
+            return RedirectToAction("CreateHall", "Admin");
         }
 		[HttpPost]
-		public IActionResult AddSeat(HallVM hallVM, int definiteRow)
+		public IActionResult AddSeat(string HallVMJson, int definiteRow)
 		{
-			var rowlength=hallVM.Seats[definiteRow].Count;
-			hallVM.Seats[definiteRow].Add(false);
-			return RedirectToAction("CreateHall", "Admin", hallVM);
-		}
-		[HttpPost]
-		public IActionResult DeleteRow(HallVM hallVM)
-		{
-			hallVM.Rows--;
-            hallVM.Seats.RemoveAt(hallVM.Rows);
-            return RedirectToAction("CreateHall", "Admin", hallVM);
-		}
-		[HttpPost]
-		public IActionResult DeleteSeat(HallVM hallVM, int definiteRow)
+            var hallVM = new HallVM();
 
+            hallVM = JsonSerializer.Deserialize<HallVM>(HallVMJson);
+            
+			hallVM.Seats[definiteRow].Add(new Seat() { _IsOccupied=false});
+            TempData["HallVM"]=JsonSerializer.Serialize(hallVM);
+			return RedirectToAction("CreateHall", "Admin");
+		}
+        [HttpPost]
+        public IActionResult AddColumn(string HallVMJson, int definiteRow)
         {
-            var rowlength = hallVM.Seats[definiteRow].Count;
-            hallVM.Seats[definiteRow].RemoveAt(rowlength);
-            return RedirectToAction("CreateHall", "Admin", hallVM);
+            var hallVM = new HallVM();
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(HallVMJson);
+
+            hallVM.Seats[definiteRow].Add(new Seat() { _IsOccupied = false, _IsColumn=true });
+            TempData["HallVM"] = JsonSerializer.Serialize(hallVM);
+            return RedirectToAction("CreateHall", "Admin");
+        }
+        [HttpPost]
+		public IActionResult DeleteRow(string HallVMJson)
+		{
+            var hallVM = new HallVM();
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(HallVMJson);
+            if (hallVM.Rows-1 != -1)
+                hallVM.Seats.RemoveAt(hallVM.Rows - 1);
+            
+
+            
+            TempData["HallVM"] = JsonSerializer.Serialize(hallVM);
+            return RedirectToAction("CreateHall", "Admin");
+		}
+		[HttpPost]
+		public IActionResult DeleteSeat(string HallVMJson, int definiteRow)
+        {
+            var hallVM = new HallVM();
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(HallVMJson);
+            var rowlength = hallVM.Seats[definiteRow].Count-1;
+            if (rowlength > -1) 
+                hallVM.Seats[definiteRow].RemoveAt(rowlength);
+            TempData["HallVM"] = JsonSerializer.Serialize(hallVM);
+            return RedirectToAction("CreateHall", "Admin");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Save(string HallVMJson)
+        {
+            var hallVM = new HallVM();
+            hallVM =  JsonSerializer.Deserialize<HallVM>(HallVMJson);
+            if (!ModelState.IsValid)
+            {
+                return View(hallVM);
+            }
+            return View(hallVM);
         }
 	}
 }

@@ -1,4 +1,5 @@
-﻿@using ICinema.ViewModels
+﻿@using ICinema.Controllers
+@using ICinema.ViewModels
 @using System.Text.Json
 @model HallVM
 @{
@@ -26,38 +27,89 @@
             background-color: red;
             color: white;
         }
+        .column{
+            background-color: gray;
+            color: white;
+        }
     </style>
 </head>
 <h2>@ViewData["Title"]</h2>
 <div class="row">
     <div class="col-6">
         <form asp-controller="Hall" asp-action="AddRow" method="post">
-            @Html.HiddenFor(m=>Model.Rows)
-            <input type="hidden" name="SeatsJson" value="@JsonSerializer.Serialize(Model.Seats)" />
+            
+            <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(Model)" />
+            
             <button type="submit" class="btn btn-primary">Add Row</button>
         </form>
     </div>
     
     <div class="col-6">
-        <a class="btn btn-primary" type="post" asp-controller="Hall" asp-action="DeleteRow">DeleteRow</a>
+        <form asp-controller="Hall" asp-action="DeleteRow" method="post">
+
+            <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(Model)" />
+
+            <button type="submit" class="btn btn-primary">Delete Row</button>
+        </form>
     </div>
     
 </div>
 <div>
-    @if (Model.Rows != null) 
+    @if (Model.Rows != 0) 
     {
 
         @for (int row = 0; row < Model.Rows; row++)
         {
             <div>
-                @for (int seat = 0; seat < Model.Seats[row].Count; seat++)
-                {
-                    var seatClass = Model.Seats[row][seat] == true ? "available" : "occupied";
-                    <div class="seat @seatClass"></div>
-                }
-                <a class="btn btn-primary" type="post" asp-controller="Hall" asp-action="AddSeat">AddSeat</a>
+                <div class="row">
+                    <div class="col-8">
+                        @for (int seat = 0; seat < Model.Seats[row].Count; seat++)
+                        {
+                            string seatClass = String.Empty;
+                            if (Model.Seats[row][seat]._IsColumn)
+                                seatClass = "column";
+                            else 
+                                seatClass = Model.Seats[row][seat]._IsOccupied == false ? "available" : "occupied";
+                            <div class="seat @seatClass"></div>
+                        }
+                    </div>
+                    <div class="col-1">
+                        <form asp-controller="Hall" asp-action="AddSeat" method="post">
+
+                            <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(Model)" />
+                            <input type="hidden" name="definiteRow" value="@row">
+                            <button type="submit" class="btn btn-primary">Add Seat</button>
+                        </form>
+                    </div>
+                    <div class="col-2">
+                        <form asp-controller="Hall" asp-action="AddColumn" method="post">
+
+                            <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(Model)" />
+                            <input type="hidden" name="definiteRow" value="@row">
+                            <button type="submit" class="btn btn-primary">Add Column</button>
+                        </form>
+                    </div>
+                    <div class="col-1">
+                        <form asp-controller="Hall" asp-action="DeleteSeat" method="post">
+
+                            <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(Model)" />
+                            <input type="hidden" name="definiteRow" value="@row">
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         }
+        <div class="row">
+            <div class="col-12">
+                <form asp-controller="Hall" asp-action="Save" method="post">
+
+                    <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(Model)" />
+                    
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
     }
 </div>
 
