@@ -1,0 +1,42 @@
+﻿@using ICinema.ViewModels
+@using System.Text.Json
+@model ICollection<HallVM>
+@{
+	ViewData["Title"] = "Halls Page";
+}
+
+<body>
+    <div>
+        @if (Model.Count != null)
+        {
+            @foreach (HallVM hallVM in Model)
+            {
+                <h3>Hall #@hallVM.Id</h3>
+                @for (int row = 0; row < hallVM.Rows; row++)
+                {                   
+                    <div class="row">
+                        <div class="col-8">
+                            @for (int seat = 0; seat < hallVM.Seats[row].Count; seat++)
+                            {
+                                string seatClass = String.Empty;
+                                if (hallVM.Seats[row][seat]._IsColumn)
+                                    seatClass = "column";
+                                else
+                                    seatClass = hallVM.Seats[row][seat]._IsOccupied == false ? "available" : "occupied";
+                                <div class="seat @seatClass"></div>
+                            }
+                        </div>
+                    </div>
+                }
+                <div class="col-1">
+                    <form asp-controller="Admin" asp-action="CreateHall" method="post">
+                        
+                        <input type="hidden" name="HallVMJson" value="@JsonSerializer.Serialize(hallVM)"/>                        
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+                    
+            }
+        }
+    </div>
+</body>

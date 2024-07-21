@@ -1,4 +1,5 @@
 ﻿using ICinema.Models;
+using ICinema.ViewModels;
 namespace ICinema.Interfaces
 {
     public interface IHallRepository
@@ -7,6 +8,6 @@ namespace ICinema.Interfaces
         public Task AddAsync(Hall hall);
         public Task UpdateAsync(Hall hall);
         public Task DeleteAsync(int id);
-        public Task<ICollection<Hall>> GetAllHallsAsync();
+        public Task<ICollection<HallVM>> GetAllHallsAsync();
     }
 }

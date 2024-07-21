@@ -99,16 +99,25 @@ namespace ICinema.Controllers
             }
             Hall hall = new Hall()
             {
+                Id = hallVM.Id,
                 SeatsJson = JsonSerializer.Serialize<List<List<Seat>>>(hallVM.Seats)
             };
+            var hallcheack = await _hallRepository.GetByIdAsync(hall.Id);
+            if (hallcheack != null)
+            {
+                await _hallRepository.UpdateAsync(hall);
+                return RedirectToAction("Index", "Home");
+            }
             _hallRepository.AddAsync(hall);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public async Task<IActionResult> GetAllHalls()
         {
-            var halls=_hallRepository.GetAllHallsAsync();
-            return RedirectToAction("HallsPage", "Admin", halls);
+            var hallsVM=await _hallRepository.GetAllHallsAsync();
+            
+            TempData["hallsVMJson"]= JsonSerializer.Serialize(hallsVM);
+            return RedirectToAction("HallsPage", "Admin");
         }
 	}
 }

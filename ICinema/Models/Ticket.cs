@@ -11,7 +11,9 @@ namespace ICinema.Models
         public string MovieName { get; set; }
 		public DateTime Date { get; set; }
 
-		public int ScreaningId {  get; set; }
+        [ForeignKey("Screaning")]
+        public int ScreaningId {  get; set; }
+        public Screaning Screaning { get; set; }
 		public int RowNumber { get; set; }
         public int SeatNumber { get; set; }
         public decimal Price { get; set; }

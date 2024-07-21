@@ -9,5 +9,7 @@ namespace ICinema.Models
         public int Id { get; set; }
         
         public string SeatsJson { get; set; }
+
+        public ICollection<Screaning> Screanings { get; set; }
     }
 }

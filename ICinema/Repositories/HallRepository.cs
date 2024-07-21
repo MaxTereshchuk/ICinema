@@ -2,7 +2,9 @@
 using ICinema.Interfaces;
 using ICinema.Models;
 using Microsoft.EntityFrameworkCore;
-
+using ICinema.ViewModels;
+using System.Text.Json;
+using CloudinaryDotNet.Actions;
 namespace ICinema.Repositories
 {
     public class HallRepository : IHallRepository
@@ -12,7 +14,8 @@ namespace ICinema.Repositories
             _appDBContext = appDBContext;
         }
         public async Task AddAsync(Hall hall)
-        {           
+        {
+            
             await _appDBContext.Halls.AddAsync(hall);
             await _appDBContext.SaveChangesAsync();
   
@@ -28,19 +31,36 @@ namespace ICinema.Repositories
             }            
         }
 
-        public async Task<ICollection<Hall>> GetAllHallsAsync()
+        public async Task<ICollection<HallVM>> GetAllHallsAsync()
         {
-            return await _appDBContext.Halls.ToListAsync();
+            var halls= await _appDBContext.Halls.ToListAsync();
+            ICollection<HallVM> hallsVM=new List<HallVM>();
+            foreach (var hall in halls)
+            {
+                var hallVM = new HallVM()
+                {
+                    Id = hall.Id,
+                    Seats = JsonSerializer.Deserialize<List<List<Seat>>>(hall.SeatsJson)
+                };
+                hallsVM.Add(hallVM);
+            }
+            return hallsVM;
         }
-
+        
         public async Task<Hall> GetByIdAsync(int id)
         {
             return await _appDBContext.Halls.FirstOrDefaultAsync(h => h.Id == id);
         }
 
-        public Task UpdateAsync(Hall hall)
+        public async Task UpdateAsync(Hall hall)
         {
-            throw new NotImplementedException();
+            var hallFromContext= await  _appDBContext.Halls.FirstOrDefaultAsync(h => h.Id == hall.Id);
+            if (hallFromContext != null)
+            {
+                hallFromContext.SeatsJson = hall.SeatsJson;
+                await _appDBContext.SaveChangesAsync();
+            }
+
         }
     }
 }

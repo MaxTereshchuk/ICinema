@@ -86,3 +86,27 @@ footer a:hover {
     margin-right: 0 !important;
     margin-left: 0 !important;
 }
+.seat {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.occupied {
+    background-color: red;
+    color: white;
+}
+
+.column {
+    background-color: gray;
+    color: white;
+}

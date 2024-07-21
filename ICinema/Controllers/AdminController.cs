@@ -96,13 +96,37 @@ namespace ICinema.Controllers
             hallVM = JsonSerializer.Deserialize<HallVM>(TempData["HallVM"].ToString());
             return View(hallVM);
         }
-        public IActionResult HallsPage(ICollection<Hall> halls)
+        [HttpPost]
+        public IActionResult CreateHall(string hallVMJson)
         {
-            if (halls == null)
+            var hallVM = new HallVM();
+
+            if (hallVMJson == null)
             {
-                return RedirectToAction("GetAllHallsAsync", "Hall");
+
+                hallVM = new HallVM()
+                {
+                    Seats = new List<List<Seat>>(),
+                };
+                hallVM.Seats.Add(new List<Seat>());
+                return View(hallVM);
+
             }
-            return View(halls);
+
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(hallVMJson);
+            return View(hallVM);
+        }
+        public IActionResult HallsPage()
+        {
+            
+            if (TempData["hallsVMJson"]==null)
+            {
+                
+                return RedirectToAction("GetAllHalls", "Hall");
+            }
+            var hallsVM = JsonSerializer.Deserialize<ICollection<HallVM>>(TempData["hallsVMJson"].ToString());
+            return View(hallsVM);
         }
         
     }
