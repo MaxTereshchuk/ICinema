@@ -24,9 +24,11 @@ namespace ICinema.Controllers
         /// This action designed for definite film's hall
         /// </summary>
         /// <param name="hall"></param>
-        /// <returns></returns>
-        public IActionResult DefiniteHall(Hall hall)
+        /// TempData["hall"]= JsonSerialize.Serialize<Hall>(hall)
+        /// <returns></returns>  return RedirectToAction("DefiniteHall", "Hall")
+        public IActionResult DefiniteHall()
         {
+            
             return View();
         }
         [HttpPost]
@@ -47,7 +49,7 @@ namespace ICinema.Controllers
 
             hallVM = JsonSerializer.Deserialize<HallVM>(HallVMJson);
             
-			hallVM.Seats[definiteRow].Add(new Seat() { _IsOccupied=false});
+			hallVM.Seats[definiteRow].Add(new Seat());
             TempData["HallVM"]=JsonSerializer.Serialize(hallVM);
 			return RedirectToAction("CreateHall", "Admin");
 		}
@@ -58,7 +60,7 @@ namespace ICinema.Controllers
 
             hallVM = JsonSerializer.Deserialize<HallVM>(HallVMJson);
 
-            hallVM.Seats[definiteRow].Add(new Seat() { _IsOccupied = false, _IsColumn=true });
+            hallVM.Seats[definiteRow].Add(new Seat() { _IsColumn=true });
             TempData["HallVM"] = JsonSerializer.Serialize(hallVM);
             return RedirectToAction("CreateHall", "Admin");
         }

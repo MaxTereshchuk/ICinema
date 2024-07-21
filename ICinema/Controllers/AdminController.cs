@@ -29,8 +29,7 @@ namespace ICinema.Controllers
 
             var ticket = new Ticket()
             {
-                MovieName = createTicketVM.MovieName,
-                Date = createTicketVM.Date,
+                
                 ScreaningId = createTicketVM.ScreaningId,
                 RowNumber = createTicketVM.RowNumber,
                 SeatNumber = createTicketVM.SeatNumber,

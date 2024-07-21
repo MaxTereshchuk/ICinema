@@ -7,7 +7,7 @@ namespace ICinema.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime Day { get; set; }
+        public DateTime Day{ get; set; }
         public int ScheduleId { get; set; }
         public Schedule Schedule { get; set; }
 
