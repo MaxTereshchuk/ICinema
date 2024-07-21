@@ -1,9 +1,11 @@
-﻿using ICinema.Interfaces;
+﻿using Azure.Core.Serialization;
+using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace ICinema.Controllers
 {
 	[Authorize(Policy = "AdminOnly")]
@@ -27,8 +29,7 @@ namespace ICinema.Controllers
 
             var ticket = new Ticket()
             {
-                MovieName = createTicketVM.MovieName,
-                Date = createTicketVM.Date,
+                
                 ScreaningId = createTicketVM.ScreaningId,
                 RowNumber = createTicketVM.RowNumber,
                 SeatNumber = createTicketVM.SeatNumber,
@@ -74,5 +75,58 @@ namespace ICinema.Controllers
             return View(emailSettingsVM);
 
         }
+        public IActionResult CreateHall()
+        {
+            var hallVM= new HallVM();
+           
+            if (TempData["HallVM"] == null)
+            {
+                
+                hallVM = new HallVM()
+                {          
+                    Seats = new List<List<Seat>>(),
+                };
+                hallVM.Seats.Add(new List<Seat>());
+                return View(hallVM);
+
+            }
+
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(TempData["HallVM"].ToString());
+            return View(hallVM);
+        }
+        [HttpPost]
+        public IActionResult CreateHall(string hallVMJson)
+        {
+            var hallVM = new HallVM();
+
+            if (hallVMJson == null)
+            {
+
+                hallVM = new HallVM()
+                {
+                    Seats = new List<List<Seat>>(),
+                };
+                hallVM.Seats.Add(new List<Seat>());
+                return View(hallVM);
+
+            }
+
+
+            hallVM = JsonSerializer.Deserialize<HallVM>(hallVMJson);
+            return View(hallVM);
+        }
+        public IActionResult HallsPage()
+        {
+            
+            if (TempData["hallsVMJson"]==null)
+            {
+                
+                return RedirectToAction("GetAllHalls", "Hall");
+            }
+            var hallsVM = JsonSerializer.Deserialize<ICollection<HallVM>>(TempData["hallsVMJson"].ToString());
+            return View(hallsVM);
+        }
+        
     }
 }
