@@ -10,6 +10,7 @@ namespace ICinema.Interfaces
 		/// </summary>
 		/// <param name="ticket"></param>
 		/// <returns></returns>
-		public Task<bool> CreateTicket(Ticket ticket); 
+		public Task<bool> CreateTicket(Ticket ticket);
+		public Task<bool> AddEmailSettings(EmailSettings emailSettings);
 	}
 }

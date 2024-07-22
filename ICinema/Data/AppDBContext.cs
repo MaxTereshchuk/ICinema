@@ -1,6 +1,7 @@
 ﻿using ICinema.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace ICinema.Data
 {
@@ -13,7 +14,7 @@ namespace ICinema.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Card> Cards { get; set; }
-
+        public DbSet<EmailSettings>EmailSettings { get; set; }
         public DbSet<Film> Films { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Screaning> Screanings { get; set; }

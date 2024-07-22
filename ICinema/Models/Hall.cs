@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CloudinaryDotNet.Actions;
 
 namespace ICinema.Models
 {
@@ -6,6 +7,9 @@ namespace ICinema.Models
     {
         [Key]
         public int Id { get; set; }
-        public int[] Matrix { get; set; }
+        
+        public string SeatsJson { get; set; }
+
+        public ICollection<Screaning> Screanings { get; set; }
     }
 }

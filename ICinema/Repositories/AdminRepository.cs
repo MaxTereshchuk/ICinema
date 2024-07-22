@@ -20,7 +20,28 @@ namespace ICinema.Repositories
 			_appDBContext = appDBContext;
 			_emailSender = emailSender;
 		}
-		public async Task<bool> CreateTicket(Ticket ticket)
+
+        public  async Task<bool> AddEmailSettings(EmailSettings emailSettings)
+        {
+			var _isExisting = await _appDBContext.EmailSettings.FirstOrDefaultAsync(e => e.Id == 1);
+			if (_isExisting == null) 
+			{
+				try
+				{
+					await _appDBContext.EmailSettings.AddAsync(emailSettings);
+                    await _appDBContext.SaveChangesAsync();
+                    return true;
+				}
+				catch
+				{
+					
+					return false;
+				}
+			}
+			return false;
+        }
+
+        public async Task<bool> CreateTicket(Ticket ticket)
 		{
 			var ticketCheack =await _appDBContext.Tickets.FirstOrDefaultAsync(t => t.ScreaningId == ticket.ScreaningId && t.SeatNumber==ticket.SeatNumber && t.RowNumber==ticket.RowNumber);
 			if (ticketCheack!=null)
@@ -35,10 +56,8 @@ namespace ICinema.Repositories
 			catch
 			{
 				return false;
-			}
-			
-			
-				
+			}			
 		}
+		
 	}
 }

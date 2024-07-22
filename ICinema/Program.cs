@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IHallRepository, HallRepository>();
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -27,9 +28,9 @@ builder.Services.AddAuthorization(options =>
 	options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
 });
 builder.Services.AddIdentity<AppUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDBContext>();
+    .AddEntityFrameworkStores<AppDBContext>()
+    .AddDefaultTokenProviders();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();

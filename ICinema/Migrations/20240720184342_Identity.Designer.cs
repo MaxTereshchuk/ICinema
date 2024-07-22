@@ -4,6 +4,7 @@ using ICinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICinema.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240720184342_Identity")]
+    partial class Identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,6 +129,42 @@ namespace ICinema.Migrations
                     b.ToTable("Cards");
                 });
 
+            modelBuilder.Entity("ICinema.Models.EmailSettings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("SenderEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SmtpPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SmtpPort")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SmtpServer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SmtpUsername")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailSettings");
+                });
+
             modelBuilder.Entity("ICinema.Models.Film", b =>
                 {
                     b.Property<int>("Id")
@@ -155,7 +194,7 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Matrix")
+                    b.Property<string>("SeatsJson")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -187,6 +226,10 @@ namespace ICinema.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
