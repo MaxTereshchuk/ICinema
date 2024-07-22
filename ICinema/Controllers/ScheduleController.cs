@@ -1,6 +1,8 @@
 ﻿using ICinema.Data;
 using ICinema.Models;
+using ICinema.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ICinema.Controllers
 {
@@ -12,10 +14,19 @@ namespace ICinema.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Schedule> schedules = _context.Schedules.ToList();
-            return View(schedules);
+            var schedules = await _context.Schedules
+                .Include(s => s.Film)
+                .ToListAsync();
+
+            var scheduleViewModels = schedules.Select(s => new ScheduleViewModel
+            {
+                Film = s.Film,
+                Schedule = s
+            }).ToList();
+
+            return View(scheduleViewModels);
         }
     }
 
