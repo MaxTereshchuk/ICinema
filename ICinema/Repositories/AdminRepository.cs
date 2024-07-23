@@ -2,6 +2,7 @@
 using ICinema.Data;
 using ICinema.Interfaces;
 using ICinema.Models;
+using ICinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,6 +42,21 @@ namespace ICinema.Repositories
 			return false;
         }
 
+        public Task CreateFilmAsync(CreateFilmVM createFilmVM)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task CreateScheduleAsync(CreateScheduleVM createSheduleVM)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task CreateScreaningAsync(CreateScreaningVM createScreaningVM)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> CreateTicket(Ticket ticket)
 		{
 			var ticketCheack =await _appDBContext.Tickets.FirstOrDefaultAsync(t => t.ScreaningId == ticket.ScreaningId && t.SeatNumber==ticket.SeatNumber && t.RowNumber==ticket.RowNumber);
@@ -58,6 +74,10 @@ namespace ICinema.Repositories
 				return false;
 			}			
 		}
-		
-	}
+
+        public Task GenerateTicketsAsync(Screaning screaning)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

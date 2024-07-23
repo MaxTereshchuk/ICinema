@@ -121,12 +121,15 @@ namespace ICinema.Repositories
         public async  Task<IdentityResult> AddTicketToCartAsync(AppUser user, Ticket ticket)
         {
             user.Cart.Tickets.Add(ticket);
+			user.Cart.Screaning=ticket.Screaning;
 			return await _userManager.UpdateAsync(user);
         }
 
         public async Task<IdentityResult> RemoveTicketFromCartAsync(AppUser user, Ticket ticket)
         {
             user.Cart.Tickets.Remove(ticket);
+			if (user.Cart.Tickets.Count == 0)
+				user.Cart.Screaning = null;
             return await _userManager.UpdateAsync(user);
         }
     }

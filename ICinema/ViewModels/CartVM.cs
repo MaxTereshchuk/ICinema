@@ -4,10 +4,10 @@ namespace ICinema.ViewModels
 {
     public class CartVM
     {
-       
-        
-        
-        public ICollection<Ticket> Tickets { get; set; }
+
+
+        public Screaning Screaning { get; set; }
+        public List<Ticket> Tickets { get; set; }
         public decimal Sum { get
             {
                 decimal sum = 0;
@@ -18,10 +18,8 @@ namespace ICinema.ViewModels
             
         }
         public string ImageUrl { get 
-            { 
-                if(Tickets!=null && Tickets.Count > 0)
-                    return Tickets[0].ImageUrl;
-                return null;
+            {
+                return Screaning.Schedule.Film.Image;
 
             }
         }
@@ -29,19 +27,16 @@ namespace ICinema.ViewModels
         {
             get
             {
-                if (Tickets != null && Tickets.Count > 0)
-                    return Tickets[0].Title;
-                return null;
+                return Screaning.Schedule.Film.Title;
             }
         }
         public DateTime Time
         {
             get
             {
-                if (Tickets != null && Tickets.Count > 0)
-                    return Tickets[0].Time;
-                return DateTime.Now;
+                return Screaning.Day;
             }
         }
+        
     }
 }

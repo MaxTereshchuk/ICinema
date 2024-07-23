@@ -241,7 +241,7 @@ namespace ICinema.Controllers
 				CartVM cartVM = new CartVM()
 				{
 					Tickets = user.MyTickets.ToList(),
-
+					Screaning=user.Cart.Screaning,
 				};
 				
 				return View(cartVM);

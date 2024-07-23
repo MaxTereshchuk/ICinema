@@ -34,7 +34,7 @@ namespace ICinema.Controllers
                 RowNumber = createTicketVM.RowNumber,
                 SeatNumber = createTicketVM.SeatNumber,
                 Price = createTicketVM.Price,
-                ImageUrl = createTicketVM.ImageUrl,
+                
             };
             bool result = await _adminRepository.CreateTicket(ticket);
             if (result)
