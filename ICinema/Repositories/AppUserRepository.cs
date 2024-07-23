@@ -117,5 +117,17 @@ namespace ICinema.Repositories
 		{
 			return await _userManager.DeleteAsync(user);
 		}
+
+        public async  Task<IdentityResult> AddTicketToCartAsync(AppUser user, Ticket ticket)
+        {
+            user.Cart.Tickets.Add(ticket);
+			return await _userManager.UpdateAsync(user);
+        }
+
+        public async Task<IdentityResult> RemoveTicketFromCartAsync(AppUser user, Ticket ticket)
+        {
+            user.Cart.Tickets.Remove(ticket);
+            return await _userManager.UpdateAsync(user);
+        }
     }
 }

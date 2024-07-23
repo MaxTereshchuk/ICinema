@@ -10,5 +10,7 @@ namespace ICinema.Models
         public ICollection<Ticket> MyTickets { get; set; }
 
         public Card? Card { get; set; }
+        
+        public Cart Cart { get; set; }
     }
 }

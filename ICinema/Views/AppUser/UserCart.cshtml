@@ -1,0 +1,37 @@
+﻿@using ICinema.ViewModels
+@model CartVM
+@{
+    ViewData["Title"]="Cart"
+}
+<div style="display: flex; align-items: flex-start;">
+    <img src=@Model.ImageUrl alt=@Model.Title style="width: 150px; height: auto; margin-right: 20px;">
+    <div>
+        <h1>@Model.Title</h1>
+        <div>
+            <p><i class="fa fa-calendar"></i> @Model.Time.ToString("dd.MM.yyyy")</p>
+            <p><i class="fa fa-clock"></i> @Model.Time.ToString(@"hh\:mm") - @Model.Time.Add(new TimeSpan(2, 0, 0)).ToString(@"hh\:mm")</p>
+        </div>
+        <h3>Your Tickets:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Row</th>
+                    <th>Seat</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ticket in Model.Tickets)
+                {
+                    <tr>
+                        <td>@ticket.RowNumber row</td>
+                        <td>@ticket.SeatNumber seat</td>
+                        <td>@ticket.Price Uan</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h3>Payable: @Model.Sum Uan</h3>
+        <button>Payment method</button>
+    </div>
+</div>

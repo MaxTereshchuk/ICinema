@@ -127,6 +127,11 @@ namespace ICinema.Controllers
             var hallsVM = JsonSerializer.Deserialize<ICollection<HallVM>>(TempData["hallsVMJson"].ToString());
             return View(hallsVM);
         }
+        public IActionResult CreateFilm()
+        {
+            return View();
+        }
+        
         
     }
 }

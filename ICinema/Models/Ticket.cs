@@ -9,8 +9,8 @@ namespace ICinema.Models
         [Key]
         public int Id { get; set; }
 
-        
-		
+        public DateTime Time { get { return Screaning.Day; } }
+		public string Title { get { return Screaning.Schedule.Film.Title; } }
 
         [ForeignKey("Screaning")]
         public int ScreaningId {  get; set; }
@@ -19,7 +19,7 @@ namespace ICinema.Models
         
         public int SeatNumber { get; set; }
         public decimal Price { get; set; }
-		public string ImageUrl { get; set; }
+		public string ImageUrl { get { return Screaning.Schedule.Film.Image; } }
 		[ForeignKey("AppUser")]
 		public string AppUserId { get; set; }
 		public AppUser AppUser { get; set; }
