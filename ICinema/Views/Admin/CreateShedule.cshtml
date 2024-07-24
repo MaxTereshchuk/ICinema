@@ -1,0 +1,31 @@
+﻿@using ICinema.ViewModels
+@model CreateScheduleVM
+@{
+	ViewData["Title"] = "Schedule Creation Page";
+}
+<body>
+	<h2>@ViewData["Title"]</h2>
+	<form method="post" asp-action="CreateShedule" asp-controller="Admin">
+		<div class="form-group">
+			<label asp-for=@Model.Day class="control-label"></label>
+			<input asp-for=@Model.Day class="form-control" placeholder="Enter Date"></input>
+			<span asp-validation-for=@Model.Day class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for=@Model.NumberOfScreanings class="control-label"></label>
+			<input asp-for=@Model.NumberOfScreanings class="form-control" placeholder="Enter Number Of Screanings"></input>
+			<span asp-validation-for=@Model.NumberOfScreanings class="text-danger"></span>
+		</div>
+
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<button style="width:100%" type="submit" class="btn btn-primary">Create</button>
+			</div>
+			<div class="col-6">
+				<a style="width:100%" class="btn btn-primary" asp-controller="Home" asp-action="Index">Cancel</a>
+			</div>
+
+		</div>
+	</form>
+</body>

@@ -8,9 +8,11 @@ namespace ICinema.Models
         public decimal Balance { get; set; }
         
         public ICollection<Ticket> MyTickets { get; set; }
-
+       
         public Card? Card { get; set; }
-        
+
+        [ForeignKey("Cart")]
+        public int? CartId { get; set; }
         public Cart Cart { get; set; }
     }
 }

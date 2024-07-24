@@ -31,6 +31,13 @@ namespace ICinema.Controllers
             
             return View();
         }
+        public async Task<Hall> GetHallById(int id)
+        {
+            var hall = await _hallRepository.GetByIdAsync(id);
+            TempData["Hall"] = JsonSerializer.Serialize(hall);
+            
+            return hall;
+        }
         [HttpPost]
         public  IActionResult AddRow(string HallVMJson)
         {
@@ -117,9 +124,10 @@ namespace ICinema.Controllers
         public async Task<IActionResult> GetAllHalls()
         {
             var hallsVM=await _hallRepository.GetAllHallsAsync();
-            
-            TempData["hallsVMJson"]= JsonSerializer.Serialize(hallsVM);
-            return RedirectToAction("HallsPage", "Admin");
+            string action = TempData["ActionToRedirect"].ToString();
+			string controller = TempData["ControllerToRedirect"].ToString();
+			TempData["hallsVMJson"]= JsonSerializer.Serialize(hallsVM);
+            return RedirectToAction(action, controller);
         }
 	}
 }

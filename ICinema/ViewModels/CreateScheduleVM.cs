@@ -1,4 +1,5 @@
 ﻿using ICinema.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ICinema.ViewModels
@@ -6,13 +7,17 @@ namespace ICinema.ViewModels
     public class CreateScheduleVM
     {
 
-        
+        [Required]
+        [Display(Name ="Date")]
+        [DataType(DataType.DateTime)]
         public DateTime Day { get; set; }     
         public int FilmId { get; set; }
         public Film Film { get; set; }
-        public string Date { get; set; }
-        
-        public int NumberOfScreanings { get; set; }
+
+		[Required]
+		[Display(Name = "Number of Screenings")]
+		
+		public int NumberOfScreanings { get; set; }
         
     }
 }
