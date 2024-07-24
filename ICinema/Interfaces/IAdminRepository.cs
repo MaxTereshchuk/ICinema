@@ -12,9 +12,9 @@ namespace ICinema.Interfaces
 		/// <returns></returns>
 		public Task<bool> CreateTicket(Ticket ticket);
 		public Task<bool> AddEmailSettings(EmailSettings emailSettings);
-		public Task CreateFilmAsync(CreateFilmVM createFilmVM);
-        public Task CreateScheduleAsync(CreateScheduleVM createSheduleVM);
-        public Task CreateScreaningAsync(CreateScreaningVM createScreaningVM);
+		public Task AddFilmAsync(Film film);
+        public Task AddScheduleAsync(Schedule schedule);
+        public Task AddScreaningAsync(Screaning screaning);
 
         public Task GenerateTicketsAsync(Screaning screaning);
     }

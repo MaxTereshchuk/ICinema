@@ -24,6 +24,6 @@ namespace ICinema.Models
 		public string AppUserId { get; set; }
 		public AppUser AppUser { get; set; }
         public bool _isOccupied { get; set; }
-
+        
 	}
 }

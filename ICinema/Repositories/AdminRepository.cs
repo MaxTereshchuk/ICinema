@@ -5,7 +5,8 @@ using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using System.Text.Json;
+using System.Collections.Generic;
 namespace ICinema.Repositories
 {
 	public class AdminRepository : IAdminRepository
@@ -42,42 +43,66 @@ namespace ICinema.Repositories
 			return false;
         }
 
-        public Task CreateFilmAsync(CreateFilmVM createFilmVM)
+        public async Task AddFilmAsync(Film film)
         {
-            throw new NotImplementedException();
+			await _appDBContext.Films.AddAsync(film);
+			await _appDBContext.SaveChangesAsync();
+			
         }
 
-        public Task CreateScheduleAsync(CreateScheduleVM createSheduleVM)
+        public async Task AddScheduleAsync(Schedule schedule)
         {
-            throw new NotImplementedException();
+            await _appDBContext.Schedules.AddAsync(schedule);
+            await _appDBContext.SaveChangesAsync();
         }
 
-        public Task CreateScreaningAsync(CreateScreaningVM createScreaningVM)
+        public async Task AddScreaningAsync(Screaning screaning)
         {
-            throw new NotImplementedException();
+            await _appDBContext.Screanings.AddAsync(screaning);
+            await _appDBContext.SaveChangesAsync();
         }
 
         public async Task<bool> CreateTicket(Ticket ticket)
-		{
-			var ticketCheack =await _appDBContext.Tickets.FirstOrDefaultAsync(t => t.ScreaningId == ticket.ScreaningId && t.SeatNumber==ticket.SeatNumber && t.RowNumber==ticket.RowNumber);
-			if (ticketCheack!=null)
-			{
-				return false; 
-			}
-			try{
-				await _appDBContext.Tickets.AddAsync(ticket);
-				await _appDBContext.SaveChangesAsync();
-				return true;
-			}
-			catch
-			{
-				return false;
-			}			
-		}
-
-        public Task GenerateTicketsAsync(Screaning screaning)
         {
-            throw new NotImplementedException();
+            var ticketCheack = await _appDBContext.Tickets.FirstOrDefaultAsync(t => t.ScreaningId == ticket.ScreaningId && t.SeatNumber == ticket.SeatNumber && t.RowNumber == ticket.RowNumber);
+            if (ticketCheack != null)
+            {
+                return false;
+            }
+            try
+            {
+                await _appDBContext.Tickets.AddAsync(ticket);
+                await _appDBContext.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
+        public async  Task GenerateTicketsAsync(Screaning screaning)
+        {
+            List<List<Seat>> Seats = JsonSerializer.Deserialize<List<List<Seat>>>(screaning.Hall.SeatsJson);
+           
+
+            for(int row=0; row<Seats.Count; row++)
+            {
+                for (int seat = 0; seat < Seats[row].Count; seat++)
+                {
+                    Ticket ticket = new Ticket()
+                    {
+                        ScreaningId = screaning.Id,
+                        Screaning = screaning,
+                        SeatNumber = seat,
+                        RowNumber = row,
+                        Price = 180,
+                        _isOccupied = false,
+                    };
+                    await _appDBContext.Tickets.AddAsync(ticket);
+                }
+            }
+        }
+
     }
 }

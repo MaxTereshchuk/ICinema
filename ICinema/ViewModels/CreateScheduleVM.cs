@@ -12,5 +12,7 @@ namespace ICinema.ViewModels
         public Film Film { get; set; }
         public string Date { get; set; }
         
+        public int NumberOfScreanings { get; set; }
+        
     }
 }
