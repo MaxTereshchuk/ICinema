@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ICinema.Models
 {
@@ -8,6 +9,7 @@ namespace ICinema.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }
-        public ICollection<Schedule> Schedules { get; set; }
+		
+		public ICollection<Schedule>? Schedules { get; set; }
     }
 }

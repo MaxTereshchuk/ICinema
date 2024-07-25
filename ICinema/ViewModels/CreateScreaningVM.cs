@@ -15,10 +15,9 @@ namespace ICinema.ViewModels
 
 
         public int HallId { get; set; }
-        public Hall Hall { get; set; }
-		[Required]
-		[Display(Name = "Available Halls")]
+        public Hall? Hall { get; set; }
 		
-		public ICollection<SelectListItem> AvailableHalls { get; set; }
+		
+		public ICollection<SelectListItem>? AvailableHalls { get; set; }
 	}
 }

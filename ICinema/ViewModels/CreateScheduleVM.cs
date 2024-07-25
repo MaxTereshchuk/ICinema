@@ -10,14 +10,12 @@ namespace ICinema.ViewModels
         [Required]
         [Display(Name ="Date")]
         [DataType(DataType.DateTime)]
-        public DateTime Day { get; set; }     
-        public int FilmId { get; set; }
-        public Film Film { get; set; }
-
-		[Required]
-		[Display(Name = "Number of Screenings")]
+        public DateTime Day { get; set; }
 		
-		public int NumberOfScreanings { get; set; }
+		public int FilmId { get; set; }
+		
+		public Film Film { get; set; }
+
         
     }
 }

@@ -1,34 +1,48 @@
 ﻿@using ICinema.ViewModels
-@model List<CreateScreaningVM>
+@model CreateScreaningVM
 @{
 	ViewData["Title"] = "Screening Creation Page";
 }
 <body>
 	<h2>@ViewData["Title"]</h2>
-	@foreach (CreateScreaningVM createScreaningVM in Model)
-	{
-		<form method="post" asp-action="CreateShedule" asp-controller="Admin">
-			<div class="form-group">
-				<label asp-for=@createScreaningVM.Day class="control-label"></label>
-				<input asp-for=@createScreaningVM.Day class="form-control" placeholder="Enter Date"></input>
-				<span asp-validation-for=@createScreaningVM.Day class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for=@createScreaningVM.HallId></label>
-				<select asp-for=@createScreaningVM.HallId class="form-control" asp-items=@createScreaningVM.AvailableHalls></select>
-				<span asp-validation-for=@createScreaningVM.HallId class="text-danger"></span>
-			</div>
-
-
-			<div class="row">
-				<div class="col-6">
-					<button style="width:100%" type="submit" class="btn btn-primary">Create</button>
+	
+		<div class="col-6">
+			<h3>Form</h3>
+			<form method="post" asp-action="CreateScreaning" asp-controller="Admin">
+				<div class="form-group">
+					<label asp-for=@Model.Day class="control-label"></label>
+					<input asp-for=@Model.Day class="form-control" placeholder="Enter Date"></input>
+					<span asp-validation-for=@Model.Day class="text-danger"></span>
 				</div>
-				<div class="col-6">
-					<a style="width:100%" class="btn btn-primary" asp-controller="Home" asp-action="Index">Cancel</a>
+				<div class="form-group">
+					<input type="hidden" asp-for="@Model.Schedule.Id" />
+					<input type="hidden" asp-for="@Model.Schedule.Film" />
+					<input type="hidden" asp-for="@Model.Schedule.FilmId" />
+					<input type="hidden" asp-for="@Model.Schedule.Day" />
 				</div>
+				<div class="form-group">
 
-			</div>
-		</form>
-	}
+					<input type="hidden" asp-for=@Model.ScheduleId />
+				
+				</div>
+				<div class="form-group">
+					<label asp-for=@Model.HallId></label>
+					<select asp-for=@Model.HallId class="form-control" asp-items=@Model.AvailableHalls></select>
+					<span asp-validation-for=@Model.HallId class="text-danger"></span>
+				</div>
+				<div class="row" style="margin: 20px"></div>
+
+				<div class="row">
+					<div class="col-6">
+						<button style="width:100%" type="submit" class="btn btn-primary">Create</button>
+					</div>
+					<div class="col-6">
+						<a style="width:100%" class="btn btn-primary" asp-controller="Home" asp-action="Index">Cancel</a>
+					</div>
+
+				</div>
+			</form>
+		</div>
+	
+	
 </body>

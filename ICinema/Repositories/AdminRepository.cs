@@ -52,18 +52,27 @@ namespace ICinema.Repositories
 
         public async Task AddScheduleAsync(Schedule schedule)
         {
+            var Film = schedule.Film;
+
+			schedule.Film = null;
             await _appDBContext.Schedules.AddAsync(schedule);
             await _appDBContext.SaveChangesAsync();
+            schedule.Film = Film;
         }
 
         public async Task AddScreaningAsync(Screaning screaning)
         {
+            var Schedule=screaning.Schedule;
+
+			screaning.Schedule = null;
             await _appDBContext.Screanings.AddAsync(screaning);
             await _appDBContext.SaveChangesAsync();
+            screaning.Schedule = Schedule;
         }
 
         public async Task<bool> CreateTicket(Ticket ticket)
         {
+            
             var ticketCheack = await _appDBContext.Tickets.FirstOrDefaultAsync(t => t.ScreaningId == ticket.ScreaningId && t.SeatNumber == ticket.SeatNumber && t.RowNumber == ticket.RowNumber);
             if (ticketCheack != null)
             {
@@ -71,6 +80,7 @@ namespace ICinema.Repositories
             }
             try
             {
+                ticket.Screaning = null;
                 await _appDBContext.Tickets.AddAsync(ticket);
                 await _appDBContext.SaveChangesAsync();
                 return true;
@@ -83,7 +93,9 @@ namespace ICinema.Repositories
 
         public async  Task GenerateTicketsAsync(Screaning screaning)
         {
-            List<List<Seat>> Seats = JsonSerializer.Deserialize<List<List<Seat>>>(screaning.Hall.SeatsJson);
+            var Hall = await _appDBContext.Halls.FirstOrDefaultAsync(h => h.Id==screaning.HallId);
+            screaning.Hall = Hall;
+			List<List<Seat>> Seats = JsonSerializer.Deserialize<List<List<Seat>>>(screaning.Hall.SeatsJson);
            
 
             for(int row=0; row<Seats.Count; row++)
@@ -94,13 +106,14 @@ namespace ICinema.Repositories
                     {
                         ScreaningId = screaning.Id,
                         Screaning = screaning,
-                        SeatNumber = seat,
-                        RowNumber = row,
+                        SeatNumber = seat+1,
+                        RowNumber = row+1,
                         Price = 180,
                         _isOccupied = false,
                     };
                     await _appDBContext.Tickets.AddAsync(ticket);
-                }
+					await _appDBContext.SaveChangesAsync();
+				}
             }
         }
 

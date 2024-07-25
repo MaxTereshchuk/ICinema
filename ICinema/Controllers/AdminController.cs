@@ -13,10 +13,12 @@ namespace ICinema.Controllers
 	public class AdminController : Controller
     {
         private readonly IAdminRepository _adminRepository;
+        private readonly IHallRepository _hallRepository;
         
-        public AdminController(IAdminRepository adminRepository) 
+        public AdminController(IAdminRepository adminRepository, IHallRepository hallRepository) 
         {
             _adminRepository = adminRepository;
+            _hallRepository= hallRepository;
             
         }
         public IActionResult CreateTicket() 
@@ -154,6 +156,7 @@ namespace ICinema.Controllers
         {
             CreateScheduleVM createScheduleVM = new CreateScheduleVM()
             {
+                Day=DateTime.Now,
                 Film = film,
                 FilmId=film.Id,
             };
@@ -172,58 +175,38 @@ namespace ICinema.Controllers
                 
             };
             
-            TempData["NumberOfScreanings"]=createScheduleVM.NumberOfScreanings;
+           
             await _adminRepository.AddScheduleAsync(schedule);
             return RedirectToAction("CreateScreaning", schedule);
 
         }
-        public IActionResult CreateScreaning(Schedule schedule)
+        public async Task<IActionResult> CreateScreaning(Schedule schedule)
         {
-            if (TempData["hallsVMJson"] == null)
-            {
-				TempData["ActionToRedirect"] = "CreateScreaning";
-				TempData["ControllerToRedirect"] = "Admin";
-				return RedirectToAction("GetAllHalls", "Hall");
-			}
+            
                 
-            List<CreateScreaningVM> screanings = new List<CreateScreaningVM>();
-            var halls = JsonSerializer.Deserialize<ICollection<HallVM>>(TempData["hallsVMJson"].ToString());
-
-			if (TempData["NumberOfScreanungs"] != null)
+            
+            var hallsVM= await _hallRepository.GetAllHallsAsync();         
+            CreateScreaningVM createScreaningVM = new CreateScreaningVM()
             {
-                int count = int.Parse(TempData["NumberOfScreanings"].ToString());
-                for (int i=0; i<count; i++)
-                {
-                    CreateScreaningVM createScreaningVM = new CreateScreaningVM()
-                    {
-                        Day = schedule.Day,
-                        Schedule = schedule,
-                        ScheduleId = schedule.Id,
-						AvailableHalls = halls.Select(h => new SelectListItem
-						{
-							Value = h.Id.ToString(),
+                Day = schedule.Day,
+                Schedule = schedule,
+                ScheduleId = schedule.Id,
+				AvailableHalls = hallsVM.Select(h => new SelectListItem
+				{
+					Value = h.Id.ToString(),
+                    Text=$"Hall {h.Id}",
 							
-						}).ToList(),
-					};
-                    
-                    screanings.Add(createScreaningVM);
-                }
+				}).ToList(),
+			};                 
                 
-            }
-            return View(screanings);
+            return View(createScreaningVM);
             
         }
         [HttpPost]
         public async Task<IActionResult> CreateScreaning(CreateScreaningVM createScreaningVM)
         {
 
-            if (TempData["Hall"] ==null)
-            {
-                TempData["ActionToRedirect"] = "CreateScreaning";
-                TempData["ControllerToRedirect"] = "Admin";
-                return RedirectToAction("GetHallById", "Hall");
-
-            }
+            
             if (!ModelState.IsValid)
                 return View(createScreaningVM);
 
@@ -232,7 +215,7 @@ namespace ICinema.Controllers
                 Day = createScreaningVM.Day,
                 Schedule = createScreaningVM.Schedule,
                 ScheduleId = createScreaningVM.ScheduleId,
-                Hall = JsonSerializer.Deserialize<Hall>(TempData["Hall"].ToString()),
+                
                 HallId = createScreaningVM.HallId,
             };
             await _adminRepository.AddScreaningAsync(screaning);
