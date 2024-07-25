@@ -1,0 +1,52 @@
+﻿@using System.Text.Json;
+@model Ticket
+@{
+	ViewData["Title"] = "Ticket DashBoard";
+}
+<body>
+	<h2>@ViewData["Title"]</h2>
+    <div class="card mt-4">
+        <div class="card-body">
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-8">
+                    <h4 class="card-title">@Model.Screaning.Schedule.Film.Title</h4>
+                </div>
+
+            </div>
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-3">
+                    <h4 class="card-title">@Model.Screaning.Day</h4>
+                </div>
+                
+            </div>
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-3">
+                    <h4 class="card-title">Row number: @Model.RowNumber</h4>
+                </div>
+                <div class="col-3">
+                    <h4 class="card-title">Seat number: @Model.SeatNumber</h4>
+                </div>
+
+
+            </div>
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-3">
+                    <h4 class="card-title">Price: @Model.Price</h4>
+                </div>
+
+            </div>
+
+            
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <form asp-action="PurchaseTicket" asp-controller="" method="post">
+                    <input type="hidden" name="TicketJson" value="@JsonSerializer.Serialize(Model)" />
+                    <button class="btn btn-primary" type="submit">Add to Cart</button>
+                </form>
+               
+            </div>
+
+        </div>
+    </div>
+</body>

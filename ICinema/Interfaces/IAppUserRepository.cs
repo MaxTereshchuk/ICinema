@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.Eventing.Reader;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using ICinema.Models;
 using ICinema.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -23,5 +24,7 @@ namespace ICinema.Interfaces
         public Task<Microsoft.AspNetCore.Identity.IdentityResult> ConfirmEmailAsync(AppUser user, string code);
 
         public Task<Microsoft.AspNetCore.Identity.IdentityResult> DeleteUserAsync(AppUser user);
+        public Task<Microsoft.AspNetCore.Identity.IdentityResult> AddTicketToCartAsync(AppUser user, Ticket ticket);
+        public Task<Microsoft.AspNetCore.Identity.IdentityResult> RemoveTicketFromCartAsync(AppUser user, Ticket ticket);
     }
 }

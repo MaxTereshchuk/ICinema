@@ -215,6 +215,40 @@ namespace ICinema.Controllers
 			await _appUserRepository.DeleteUserAsync(user);
 			return View();
 		}
+		[HttpPost]
+
+		public async Task<IActionResult> AddTicketToCart(Ticket ticket)
+		{
+			var user = await _appUserRepository.GetUser(User);
+			if (user != null) 
+			{
+				var result = await _appUserRepository.AddTicketToCartAsync(user, ticket);
+				if (result.Succeeded) 
+				{
+					return RedirectToAction("UserCart", "AppUser");
+				}
+			}
+			ModelState.AddModelError(String.Empty, "Please Login");
+			return RedirectToAction("Login", "AppUser");
+
+		}
+
+		public async Task<IActionResult> UserCart()
+		{
+			AppUser user =  await _appUserRepository.GetUser(User);
+			if (user != null)
+			{
+				CartVM cartVM = new CartVM()
+				{
+					Tickets = user.MyTickets.ToList(),
+					Screaning=user.Cart.Screaning,
+				};
+				
+				return View(cartVM);
+			}
+            ModelState.AddModelError(String.Empty, "Please Login");
+            return RedirectToAction("Login", "AppUser");
+        }
 
 
 	}

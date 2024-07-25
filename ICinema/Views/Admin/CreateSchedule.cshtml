@@ -1,0 +1,41 @@
+﻿@using ICinema.ViewModels
+@model CreateScheduleVM
+@{
+	ViewData["Title"] = "Schedule Creation Page";
+}
+<body>
+	<h2>@ViewData["Title"]</h2>
+	<form method="post" asp-action="CreateSchedule" asp-controller="Admin">
+		<div class="form-group">
+			<label asp-for=@Model.Day class="control-label"></label>
+			<input asp-for=@Model.Day class="form-control" placeholder="Enter Date"></input>
+			<span asp-validation-for=@Model.Day class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<input type="hidden" asp-for="@Model.Film.Id" />
+			<input type="hidden" asp-for="@Model.Film.Title" />
+			<input type="hidden" asp-for="@Model.Film.Image" />
+			<span asp-validation-for=@Model.Film class="text-danger"></span>
+		</div>
+		<div class="form-group">
+
+			<input type="hidden" asp-for=@Model.FilmId />
+			<span asp-validation-for=@Model.FilmId class="text-danger"></span>
+		</div>
+		
+
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<button style="width:100%" type="submit" class="btn btn-primary">Create</button>
+			</div>
+			<div class="col-6">
+				<a style="width:100%" class="btn btn-primary" asp-controller="Home" asp-action="Index">Cancel</a>
+			</div>
+
+		</div>
+	</form>
+	<div>
+		<span>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</span>
+	</div>
+</body>

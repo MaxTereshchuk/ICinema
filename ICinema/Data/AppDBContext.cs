@@ -19,7 +19,21 @@ namespace ICinema.Data
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Screaning> Screanings { get; set; }
         public DbSet<Hall> Halls { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.Screaning)
+                .WithMany(s => s.Tickets)
+                .HasForeignKey(t => t.ScreaningId)
+                .OnDelete(DeleteBehavior.Restrict); 
 
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.AppUser)
+                .WithMany(u => u.MyTickets)
+                .HasForeignKey(t => t.AppUserId)
+                .OnDelete(DeleteBehavior.Restrict); 
+        }
 
 
     }

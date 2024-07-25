@@ -4,7 +4,6 @@ using ICinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICinema.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20240720184342_Identity")]
-    partial class Identity
+    partial class AppDBContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +34,9 @@ namespace ICinema.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("CardId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -87,6 +87,8 @@ namespace ICinema.Migrations
 
                     b.HasIndex("CardId");
 
+                    b.HasIndex("CartId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -127,6 +129,29 @@ namespace ICinema.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cards");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ScreaningId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ScreaningId");
+
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("ICinema.Models.EmailSettings", b =>
@@ -211,27 +236,11 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("Day")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("FilmId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Hall")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -275,19 +284,10 @@ namespace ICinema.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovieName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -301,9 +301,14 @@ namespace ICinema.Migrations
                     b.Property<int>("SeatNumber")
                         .HasColumnType("int");
 
+                    b.Property<bool>("_isOccupied")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("ScreaningId");
 
@@ -449,7 +454,32 @@ namespace ICinema.Migrations
                         .WithMany()
                         .HasForeignKey("CardId");
 
+                    b.HasOne("ICinema.Models.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Card");
+
+                    b.Navigation("Cart");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Cart", b =>
+                {
+                    b.HasOne("ICinema.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("ICinema.Models.Screaning", "Screaning")
+                        .WithMany()
+                        .HasForeignKey("ScreaningId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Screaning");
                 });
 
             modelBuilder.Entity("ICinema.Models.Schedule", b =>
@@ -466,7 +496,7 @@ namespace ICinema.Migrations
             modelBuilder.Entity("ICinema.Models.Screaning", b =>
                 {
                     b.HasOne("ICinema.Models.Hall", "Hall")
-                        .WithMany()
+                        .WithMany("Screanings")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -487,16 +517,21 @@ namespace ICinema.Migrations
                     b.HasOne("ICinema.Models.AppUser", "AppUser")
                         .WithMany("MyTickets")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("ICinema.Models.Screaning", null)
+                    b.HasOne("ICinema.Models.Cart", null)
+                        .WithMany("Tickets")
+                        .HasForeignKey("CartId");
+
+                    b.HasOne("ICinema.Models.Screaning", "Screaning")
                         .WithMany("Tickets")
                         .HasForeignKey("ScreaningId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
+
+                    b.Navigation("Screaning");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -555,9 +590,19 @@ namespace ICinema.Migrations
                     b.Navigation("MyTickets");
                 });
 
+            modelBuilder.Entity("ICinema.Models.Cart", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
             modelBuilder.Entity("ICinema.Models.Film", b =>
                 {
                     b.Navigation("Schedules");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Hall", b =>
+                {
+                    b.Navigation("Screanings");
                 });
 
             modelBuilder.Entity("ICinema.Models.Schedule", b =>
