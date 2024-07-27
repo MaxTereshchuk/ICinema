@@ -222,11 +222,20 @@ namespace ICinema.Controllers
 			var user = await _appUserRepository.GetUser(User);
 			if (user != null) 
 			{
-				var result = await _appUserRepository.AddTicketToCartAsync(user, ticket);
-				if (result.Succeeded) 
+				if (user.Cart.Screaning != null)
 				{
-					return RedirectToAction("UserCart", "AppUser");
+					if (user.Cart.ScreaningId != ticket.ScreaningId)
+					{
+						ModelState.AddModelError("DiferentScreaning", "Your Cart filled by another Screening, Press Yes to clear Cart");
+						return View(ticket);
+					}
+					var result = await _appUserRepository.AddTicketToCartAsync(user, ticket);
+					if (result.Succeeded)
+					{
+						return RedirectToAction("UserCart", "AppUser");
+					}
 				}
+				
 			}
 			ModelState.AddModelError(String.Empty, "Please Login");
 			return RedirectToAction("Login", "AppUser");
@@ -240,7 +249,7 @@ namespace ICinema.Controllers
 			{
 				CartVM cartVM = new CartVM()
 				{
-					Tickets = user.MyTickets.ToList(),
+					Tickets = user.Cart.Tickets,
 					Screaning=user.Cart.Screaning,
 				};
 				

@@ -6,6 +6,7 @@ using ICinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace ICinema.Repositories
 {
@@ -118,19 +119,10 @@ namespace ICinema.Repositories
 			return await _userManager.DeleteAsync(user);
 		}
 
-        public async  Task<IdentityResult> AddTicketToCartAsync(AppUser user, Ticket ticket)
-        {
-            user.Cart.Tickets.Add(ticket);
-			user.Cart.Screaning=ticket.Screaning;
+        public async Task<IdentityResult> UpdateUserAsync(AppUser user)
+		{
 			return await _userManager.UpdateAsync(user);
-        }
-
-        public async Task<IdentityResult> RemoveTicketFromCartAsync(AppUser user, Ticket ticket)
-        {
-            user.Cart.Tickets.Remove(ticket);
-			if (user.Cart.Tickets.Count == 0)
-				user.Cart.Screaning = null;
-            return await _userManager.UpdateAsync(user);
-        }
+		}
+		
     }
 }

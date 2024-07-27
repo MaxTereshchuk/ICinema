@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-3">
-                <form asp-action="PurchaseTicket" asp-controller="" method="post">
+                <form asp-action="AddTicket" asp-controller="Cart" method="post">
                     <input type="hidden" name="TicketJson" value="@JsonSerializer.Serialize(Model)" />
                     <button class="btn btn-primary" type="submit">Add to Cart</button>
                 </form>
@@ -48,5 +48,15 @@
             </div>
 
         </div>
+        
+        if(@Html.ValidationMessage("DifferentScreaning", "", new{ @class ="text-danger"})!=null){
+            <div>
+                <span>@Html.ValidationMessage("DifferentScreaning", "", new { @class = "text-danger" })</span>
+                <form asp-action="ClearCart" asp-controller="Cart" method="post">
+                    <input type="hidden" name="TicketJson" value="@JsonSerializer.Serialize(Model)" />
+                    <button class="btn btn-primary" type="submit">ClearCart</button>
+                </form>
+            </div>
+        }
     </div>
 </body>

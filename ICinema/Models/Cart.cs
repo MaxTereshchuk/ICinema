@@ -6,7 +6,10 @@ namespace ICinema.Models
     {
         [Key]
         public int Id { get; set; }
+        [ForeignKey("Screaning")]
+        public int ScreaningId { get; set; }
         public Screaning Screaning { get; set; }
+        
         public List<Ticket> Tickets { get; set; }
         [ForeignKey("AppUser")]
         public string? AppUserId { get; set; }

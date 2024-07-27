@@ -10,7 +10,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
