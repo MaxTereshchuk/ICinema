@@ -11,6 +11,7 @@ namespace ICinema.Data
         {
         
         }
+        public DbSet<Cart> Carts { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Card> Cards { get; set; }

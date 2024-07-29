@@ -16,6 +16,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IHallRepository, HallRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -34,7 +35,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options=> options.LoginPath="/AppUser/Login");
 var app = builder.Build();
 
 if (args.Length == 1 && args[0].ToLower() == "seeddata")

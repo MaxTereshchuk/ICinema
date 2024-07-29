@@ -39,20 +39,31 @@ namespace ICinema.Repositories
 
 		public async Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateUser(RegisterVM registerVM)
 		{
+
 			var newUser = new AppUser()
 			{
 				Email = registerVM.Email,
 				UserName = registerVM.Email,
-
+				
 
 			};
 			var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 			if (newUserResponse.Succeeded)
 			{
-				if(registerVM.IsAdmin) 
+				
+				if (registerVM.IsAdmin) 
 					await _userManager.AddToRoleAsync(newUser, UserRoles.Admin);
 				else
 					await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+
+				var user = await GetByEmail(newUser.Email);
+				var cart = new Cart()
+				{
+					AppUserId = user.Id,
+				};
+				user.Cart = cart;
+				var result =await _userManager.UpdateAsync(user);
+
 
 			}
 
@@ -78,7 +89,7 @@ namespace ICinema.Repositories
 			if (user == null)
 				return user;
 			
-			return await _appDBContext.AppUsers.Include(u=>u.Card).FirstOrDefaultAsync(u => u.Id == user.Id);
+			return await _appDBContext.AppUsers.Include(u=>u.Card).Include(u=>u.Cart).FirstOrDefaultAsync(u => u.Id == user.Id);
 		}
 
         public async Task<Microsoft.AspNetCore.Identity.IdentityResult> EditPhoneNumber(AppUser user, string phoneNumber)

@@ -11,8 +11,8 @@ namespace ICinema.Models
        
         public Card? Card { get; set; }
 
-        [ForeignKey("Cart")]
-        public int? CartId { get; set; }
+        
+        
         public Cart Cart { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using ICinema.Interfaces;
 using System.Text.Json;
 using ICinema.Models;
 using ICinema.Controllers;
+using Microsoft.Extensions.Logging.Abstractions;
 namespace ICinema.Repositories
 {
     public class CartRepository : ICartRepository
@@ -32,19 +33,50 @@ namespace ICinema.Repositories
             
         }
 
-        public Task ClearCartAsync(int cartId)
+        public async Task ClearCartAsync(AppUser user)
         {
-            throw new NotImplementedException();
+            user.Cart.Tickets.Clear();
+            user.Cart.Screaning = null;
+            user.Cart.ScreaningId = 0;
+            var result = await _appUserRepository.UpdateUserAsync(user);
+            if (!result.Succeeded)
+            {
+                _logger.LogError("Error occured while updating user. Error: {Errors}", string.Join(",", result.Errors.Select(e => e.Description)));
+                throw new Exception("Failed to update user.");
+            }
+
         }
 
-        public Task ClearCartAsync(int cartId, Ticket ticket)
+        public async Task ClearCartAsync(AppUser user, Ticket ticket)
         {
-            throw new NotImplementedException();
+            user.Cart.Tickets.Clear();
+            user.Cart.Tickets.Add(ticket);
+            user.Cart.Screaning = ticket.Screaning;
+            user.Cart.ScreaningId= ticket.ScreaningId;
+            var result = await _appUserRepository.UpdateUserAsync(user);
+            if (!result.Succeeded)
+            {
+                _logger.LogError("Error occured while updating user. Error: {Errors}", string.Join(",", result.Errors.Select(e => e.Description)));
+                throw new Exception("Failed to update user.");
+            }
+
         }
 
-        public Task DeleteTicket(int ticketId)
+        public async Task DeleteTicketAsync(AppUser user, Ticket ticket)
         {
-            throw new NotImplementedException();
+            user.Cart.Tickets.Remove(ticket);
+            if (user.Cart.Tickets.Count == 0)
+            {
+                user.Cart.ScreaningId = 0;
+                user.Cart.Screaning = null;
+            }
+            var result = await _appUserRepository.UpdateUserAsync(user);
+            if (!result.Succeeded)
+            {
+                _logger.LogError("Error occured while updating user. Error: {Errors}", string.Join(",", result.Errors.Select(e => e.Description)));
+                throw new Exception("Failed to update user.");
+            }
+
         }
     }
 }
