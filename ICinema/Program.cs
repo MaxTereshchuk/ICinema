@@ -42,6 +42,12 @@ if (args.Length == 1 && args[0].ToLower() == "seeddata")
     Seed.SeedData(app);
 }
 
+if (args.Length == 1 && args[0].ToLower() == "addroles")
+{
+    //await Seed.SeedUsersAndRolesAsync(app);
+    AddRoles.SeedData(app);
+}
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

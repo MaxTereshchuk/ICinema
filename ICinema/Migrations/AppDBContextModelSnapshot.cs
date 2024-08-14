@@ -37,6 +37,7 @@ namespace ICinema.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("CartId")
+                    b.Property<int?>("CartId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -459,6 +460,8 @@ namespace ICinema.Migrations
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                        .HasForeignKey("CartId");
+
 
                     b.Navigation("Card");
 
