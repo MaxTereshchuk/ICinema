@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IHallRepository, HallRepository>();
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -27,9 +28,9 @@ builder.Services.AddAuthorization(options =>
 	options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
 });
 builder.Services.AddIdentity<AppUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDBContext>();
+    .AddEntityFrameworkStores<AppDBContext>()
+    .AddDefaultTokenProviders();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
@@ -39,6 +40,12 @@ if (args.Length == 1 && args[0].ToLower() == "seeddata")
 {
     //await Seed.SeedUsersAndRolesAsync(app);
     Seed.SeedData(app);
+}
+
+if (args.Length == 1 && args[0].ToLower() == "addroles")
+{
+    //await Seed.SeedUsersAndRolesAsync(app);
+    AddRoles.SeedData(app);
 }
 
 if (!app.Environment.IsDevelopment())

@@ -34,7 +34,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="AppUser" asp-action="LogOut">Log Out</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="AppUser" asp-action="DeleteUser">Delete User</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -114,7 +116,7 @@
                                 <img class="d-block w-100" src="@ticket.ImageUrl" alt="Ticket image">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>@ticket.</h5>
-                                    <p>@ticket.Date.ToString("HH:mm")</p>
+                                    <p>@ticket.Screaning.Day.ToString("HH:mm")</p>
                                 </div>
                             </div>
                         }

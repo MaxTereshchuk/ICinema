@@ -54,6 +54,7 @@ namespace ICinema.Repositories
 					await _userManager.AddToRoleAsync(newUser, UserRoles.User);
 
 			}
+
 			return newUserResponse;
 		}
 		public async Task<bool> LogOut()
@@ -93,10 +94,43 @@ namespace ICinema.Repositories
 			var result = await _userManager.UpdateAsync(user);
 			return result;
         }
-		public async Task<bool> SendEmail(string email)
+		public async Task<bool> SendEmailAsync(string email, string subject, string message)
 		{		
-			return await _emailSender.SendEmailAsync(email, "Confirm your email", "Hello");
+			return await _emailSender.SendEmailAsync(email, subject,message);
         }
-		
-	}
+
+        public async Task<string> GenerateEmailConfirmationTokenAsync(AppUser user)
+        {
+			return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        }
+
+        public async Task<AppUser> GetByIdAsync(string userId)
+        {
+			return await _userManager.FindByIdAsync(userId);
+        }
+
+        public async Task<IdentityResult> ConfirmEmailAsync(AppUser user, string code)
+        {
+			return await _userManager.ConfirmEmailAsync(user, code);
+        }
+		public async Task<IdentityResult> DeleteUserAsync(AppUser user)
+		{
+			return await _userManager.DeleteAsync(user);
+		}
+
+        public async  Task<IdentityResult> AddTicketToCartAsync(AppUser user, Ticket ticket)
+        {
+            user.Cart.Tickets.Add(ticket);
+			user.Cart.Screaning=ticket.Screaning;
+			return await _userManager.UpdateAsync(user);
+        }
+
+        public async Task<IdentityResult> RemoveTicketFromCartAsync(AppUser user, Ticket ticket)
+        {
+            user.Cart.Tickets.Remove(ticket);
+			if (user.Cart.Tickets.Count == 0)
+				user.Cart.Screaning = null;
+            return await _userManager.UpdateAsync(user);
+        }
+    }
 }

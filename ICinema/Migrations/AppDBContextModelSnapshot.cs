@@ -36,6 +36,9 @@ namespace ICinema.Migrations
                     b.Property<int?>("CardId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +87,8 @@ namespace ICinema.Migrations
 
                     b.HasIndex("CardId");
 
+                    b.HasIndex("CartId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -126,6 +131,65 @@ namespace ICinema.Migrations
                     b.ToTable("Cards");
                 });
 
+            modelBuilder.Entity("ICinema.Models.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ScreaningId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ScreaningId");
+
+                    b.ToTable("Cart");
+                });
+
+            modelBuilder.Entity("ICinema.Models.EmailSettings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("SenderEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SmtpPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SmtpPort")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SmtpServer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SmtpUsername")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailSettings");
+                });
+
             modelBuilder.Entity("ICinema.Models.Film", b =>
                 {
                     b.Property<int>("Id")
@@ -155,7 +219,7 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Matrix")
+                    b.Property<string>("SeatsJson")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -172,23 +236,11 @@ namespace ICinema.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("Day")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("FilmId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Hall")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -232,19 +284,10 @@ namespace ICinema.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovieName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -258,9 +301,14 @@ namespace ICinema.Migrations
                     b.Property<int>("SeatNumber")
                         .HasColumnType("int");
 
+                    b.Property<bool>("_isOccupied")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("ScreaningId");
 
@@ -406,7 +454,30 @@ namespace ICinema.Migrations
                         .WithMany()
                         .HasForeignKey("CardId");
 
+                    b.HasOne("ICinema.Models.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId");
+
                     b.Navigation("Card");
+
+                    b.Navigation("Cart");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Cart", b =>
+                {
+                    b.HasOne("ICinema.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("ICinema.Models.Screaning", "Screaning")
+                        .WithMany()
+                        .HasForeignKey("ScreaningId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Screaning");
                 });
 
             modelBuilder.Entity("ICinema.Models.Schedule", b =>
@@ -423,7 +494,7 @@ namespace ICinema.Migrations
             modelBuilder.Entity("ICinema.Models.Screaning", b =>
                 {
                     b.HasOne("ICinema.Models.Hall", "Hall")
-                        .WithMany()
+                        .WithMany("Screanings")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -444,16 +515,21 @@ namespace ICinema.Migrations
                     b.HasOne("ICinema.Models.AppUser", "AppUser")
                         .WithMany("MyTickets")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("ICinema.Models.Screaning", null)
+                    b.HasOne("ICinema.Models.Cart", null)
+                        .WithMany("Tickets")
+                        .HasForeignKey("CartId");
+
+                    b.HasOne("ICinema.Models.Screaning", "Screaning")
                         .WithMany("Tickets")
                         .HasForeignKey("ScreaningId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
+
+                    b.Navigation("Screaning");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -512,9 +588,19 @@ namespace ICinema.Migrations
                     b.Navigation("MyTickets");
                 });
 
+            modelBuilder.Entity("ICinema.Models.Cart", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
             modelBuilder.Entity("ICinema.Models.Film", b =>
                 {
                     b.Navigation("Schedules");
+                });
+
+            modelBuilder.Entity("ICinema.Models.Hall", b =>
+                {
+                    b.Navigation("Screanings");
                 });
 
             modelBuilder.Entity("ICinema.Models.Schedule", b =>

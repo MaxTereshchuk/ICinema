@@ -95,12 +95,21 @@ namespace ICinema.Controllers
 				return View(registerVM);
 			}
 
+
+			
+            var newUserResponse= await _appUserRepository.CreateUser(registerVM);
 			
             
-            var newUserResponse= await _appUserRepository.CreateUser(registerVM);
-			if (newUserResponse.Succeeded)
+
+            if (newUserResponse.Succeeded)
 			{
-				return RedirectToAction("Index");
+				user = await _appUserRepository.GetByEmail(registerVM.Email);
+                var code = await _appUserRepository.GenerateEmailConfirmationTokenAsync(user);
+				var callBackUrl = Url.Action("ConfirmEmail", "AppUser", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                
+				await _appUserRepository.SendEmailAsync(registerVM.Email, "Confirm your email",
+				   $"Please confirm your account by <a href='{callBackUrl}'>clicking here</a>.");
+                return RedirectToAction("Index");
 			}
 			foreach (var error in newUserResponse.Errors)
 			{
@@ -183,6 +192,63 @@ namespace ICinema.Controllers
 			return View(editCardVM);
 		}
 
+		[HttpGet]
+
+		public async Task<IActionResult> ConfirmEmail(string userId, string code)
+		{
+			if(userId == null || code == null)
+			{
+				return RedirectToAction("Index", "Home");
+
+            }
+			var user = await _appUserRepository.GetByIdAsync(userId);
+			if (user == null) 
+			{
+                return NotFound($"Unable to load user with ID '{userId}'.");
+            }
+			var result = await _appUserRepository.ConfirmEmailAsync(user, code);
+			return View(result.Succeeded ? "ConfirmEmail" : "Error");
+		}
+		public async Task<IActionResult> DeleteUser()
+		{
+			var user= await _appUserRepository.GetUser(User);
+			await _appUserRepository.DeleteUserAsync(user);
+			return View();
+		}
+		[HttpPost]
+
+		public async Task<IActionResult> AddTicketToCart(Ticket ticket)
+		{
+			var user = await _appUserRepository.GetUser(User);
+			if (user != null) 
+			{
+				var result = await _appUserRepository.AddTicketToCartAsync(user, ticket);
+				if (result.Succeeded) 
+				{
+					return RedirectToAction("UserCart", "AppUser");
+				}
+			}
+			ModelState.AddModelError(String.Empty, "Please Login");
+			return RedirectToAction("Login", "AppUser");
+
+		}
+
+		public async Task<IActionResult> UserCart()
+		{
+			AppUser user =  await _appUserRepository.GetUser(User);
+			if (user != null)
+			{
+				CartVM cartVM = new CartVM()
+				{
+					Tickets = user.MyTickets.ToList(),
+					Screaning=user.Cart.Screaning,
+				};
+				
+				return View(cartVM);
+			}
+            ModelState.AddModelError(String.Empty, "Please Login");
+            return RedirectToAction("Login", "AppUser");
+        }
 
 
 	}
