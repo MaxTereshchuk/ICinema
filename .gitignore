@@ -2,7 +2,7 @@
 # Build and release folders
 ICinema/bin/
 ICinema/obj/
-
+ICinema/Migrations/
 # User-specific files
 *.rsuser
 *.suo

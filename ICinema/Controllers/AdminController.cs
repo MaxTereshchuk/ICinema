@@ -5,47 +5,50 @@ using ICinema.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Identity.Client;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 namespace ICinema.Controllers
 {
-	[Authorize(Policy = "AdminOnly")]
-	public class AdminController : Controller
+    [Authorize(Policy = "AdminOnly")]
+    public class AdminController : Controller
     {
         private readonly IAdminRepository _adminRepository;
         private readonly IHallRepository _hallRepository;
-        
-        public AdminController(IAdminRepository adminRepository, IHallRepository hallRepository) 
+        private readonly IFilmsRepository _filmsRepository;
+
+        public AdminController(IAdminRepository adminRepository, IHallRepository hallRepository, IFilmsRepository filmsRepository)
         {
             _adminRepository = adminRepository;
-            _hallRepository= hallRepository;
-            
+            _hallRepository = hallRepository;
+            _filmsRepository = filmsRepository;
+
         }
-        public IActionResult CreateTicket() 
+        public IActionResult CreateTicket()
         {
-            return View(); 
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateTicket(CreateTicketVM createTicketVM)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
                 return View(createTicketVM);
 
             var ticket = new Ticket()
             {
-                
+
                 ScreaningId = createTicketVM.ScreaningId,
                 RowNumber = createTicketVM.RowNumber,
                 SeatNumber = createTicketVM.SeatNumber,
                 Price = createTicketVM.Price,
-                
+
             };
             bool result = await _adminRepository.CreateTicket(ticket);
             if (result)
             {
                 return RedirectToAction("Index", "Home");
-                
+
             }
             return View(createTicketVM);
         }
@@ -60,7 +63,7 @@ namespace ICinema.Controllers
             {
                 return View(emailSettingsVM);
             }
-            
+
             var emailSettings = new EmailSettings()
             {
                 SmtpServer = "smtp.gmail.com",
@@ -82,13 +85,13 @@ namespace ICinema.Controllers
         }
         public IActionResult CreateHall()
         {
-            var hallVM= new HallVM();
-           
+            var hallVM = new HallVM();
+
             if (TempData["HallVM"] == null)
             {
-                
+
                 hallVM = new HallVM()
-                {          
+                {
                     Seats = new List<List<Seat>>(),
                 };
                 hallVM.Seats.Add(new List<Seat>());
@@ -123,16 +126,17 @@ namespace ICinema.Controllers
         }
         public IActionResult HallsPage()
         {
-            
-            if (TempData["hallsVMJson"]==null)
+
+            if (TempData["hallsVMJson"] == null)
             {
                 TempData["ActionToRedirect"] = "HallsPage";
-				TempData["ControllerToRedirect"] = "Admin";
-				return RedirectToAction("GetAllHalls", "Hall");
+                TempData["ControllerToRedirect"] = "Admin";
+                return RedirectToAction("GetAllHalls", "Hall");
             }
             var hallsVM = JsonSerializer.Deserialize<ICollection<HallVM>>(TempData["hallsVMJson"].ToString());
             return View(hallsVM);
         }
+        [HttpGet]
         public IActionResult CreateFilm()
         {
             return View();
@@ -150,15 +154,20 @@ namespace ICinema.Controllers
             };
 
             await _adminRepository.AddFilmAsync(film);
-            return RedirectToAction("CreateSchedule", film);
+            
+            return RedirectToAction("ListOfFilms");
         }
-        public IActionResult CreateSchedule(Film film)
+        [HttpGet]
+        public IActionResult CreateSchedule(string filmJson)
         {
+            
+            var film = JsonSerializer.Deserialize<Film>(filmJson);
+            
             CreateScheduleVM createScheduleVM = new CreateScheduleVM()
             {
-                Day=DateTime.Now,
+                Day = DateTime.Now,
                 Film = film,
-                FilmId=film.Id,
+                FilmId = film.Id,
             };
             return View(createScheduleVM);
         }
@@ -172,18 +181,20 @@ namespace ICinema.Controllers
                 Day = createScheduleVM.Day,
                 Film = createScheduleVM.Film,
                 FilmId = createScheduleVM.FilmId,
-                
+
             };
-            
-           
+
+
             await _adminRepository.AddScheduleAsync(schedule);
-            return RedirectToAction("CreateScreaning", schedule);
+            
+            return RedirectToAction("ListOfFilms");
 
         }
-        public async Task<IActionResult> CreateScreaning(Schedule schedule)
+        [HttpGet]
+        public async Task<IActionResult> CreateScreaning(string scheduleJson)
         {
-            
-                
+            var schedule = JsonSerializer.Deserialize<Schedule>(scheduleJson);
+
             
             var hallsVM= await _hallRepository.GetAllHallsAsync();         
             CreateScreaningVM createScreaningVM = new CreateScreaningVM()
@@ -220,8 +231,29 @@ namespace ICinema.Controllers
             };
             await _adminRepository.AddScreaningAsync(screaning);
             await _adminRepository.GenerateTicketsAsync(screaning);
-            
-            return RedirectToAction("Index", "Home");
+           
+            return RedirectToAction("ListOfFilms");
+        }
+        [HttpGet]
+        public async Task<IActionResult> ListOfFilms()
+        {
+            var films= await _filmsRepository.GetAllFilmsAsync();
+            return View(films);
+        }
+		[HttpPost]
+		public async Task<IActionResult> ListOfSchedulesForFilm(string filmJson)
+		{
+			var film=JsonSerializer.Deserialize<Film>(filmJson);
+            return View(film);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ListOfScreaningForSchedule(string scheduleJson)
+        {
+            var schedule = JsonSerializer.Deserialize<Schedule>(scheduleJson);
+            return View(schedule);
+
         }
 
 

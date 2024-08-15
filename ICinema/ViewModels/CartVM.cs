@@ -6,8 +6,8 @@ namespace ICinema.ViewModels
     {
 
 
-        public Screaning Screaning { get; set; }
-        public List<Ticket> Tickets { get; set; }
+        public Screaning? Screaning { get; set; }
+        public List<Ticket>? Tickets { get; set; }
         public decimal Sum { get
             {
                 decimal sum = 0;

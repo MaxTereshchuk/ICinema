@@ -11,6 +11,7 @@ namespace ICinema.Data
         {
         
         }
+        public DbSet<Cart> Carts { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Card> Cards { get; set; }
@@ -32,7 +33,21 @@ namespace ICinema.Data
                 .HasOne(t => t.AppUser)
                 .WithMany(u => u.MyTickets)
                 .HasForeignKey(t => t.AppUserId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Schedule>()
+                .HasOne(s => s.Film)
+                .WithMany(s => s.Schedules)
+                .HasForeignKey(s => s.FilmId)
+                .OnDelete(DeleteBehavior.Restrict);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Screaning>()
+                .HasOne(s => s.Schedule)
+                .WithMany(s => s.Screanings)
+                .HasForeignKey(s => s.ScheduleId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
 
 

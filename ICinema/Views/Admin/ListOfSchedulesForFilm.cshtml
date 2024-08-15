@@ -1,0 +1,34 @@
+﻿@using ICinema.ViewModels
+@using System.Text.Json
+@model Film
+@{
+    ViewData["Title"] = "Schedules Page";
+}
+
+<body>
+    <div>
+        @if (Model.Schedules != null)
+        {
+            @foreach (Schedule schedule in Model.Schedules)
+            {
+                <h3>Schedule #@schedule.Day </h3>
+                
+                <div class="col-4">
+                    <form asp-controller="Admin" asp-action="ListOfScreaningForSchedule" method="post">
+
+                        <input type="hidden" name="scheduleJson" value="@JsonSerializer.Serialize(schedule)" />
+                        <button type="submit" class="btn btn-primary">ListofScreaning</button>
+                    </form>
+                    
+                </div>
+
+            }
+            
+        }
+        <form asp-controller="Admin" asp-action="CreateSchedule" method="get">
+
+            <input type="hidden" name="filmJson" value="@JsonSerializer.Serialize(Model)" />
+            <button type="submit" class="btn btn-primary">Create Schedule</button>
+        </form>
+    </div>
+</body>

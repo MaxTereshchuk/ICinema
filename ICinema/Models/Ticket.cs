@@ -26,7 +26,10 @@ namespace ICinema.Models
 		[ForeignKey("AppUser")]
 		public string? AppUserId { get; set; }
 		public AppUser AppUser { get; set; }
-        public bool _isOccupied { get; set; }
+		[ForeignKey("Cart")]
+		public int? CartId { get; set; }
+		public Cart Cart{ get; set; }
+		public bool _isOccupied { get; set; }
         
 	}
 }

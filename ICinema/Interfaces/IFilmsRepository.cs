@@ -8,6 +8,6 @@ namespace ICinema.Interfaces
         public Task AddAsync(Film film);
         public Task UpdateAsync(Film film);
         public Task DeleteAsync(int id);
-        public Task<ICollection<FilmVM>> GetAllFilmsAsync();
+        public Task<ICollection<Film>> GetAllFilmsAsync();
     }
 }

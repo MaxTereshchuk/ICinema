@@ -1,4 +1,5 @@
-﻿using ICinema.Interfaces;
+﻿using System.Reflection.Metadata.Ecma335;
+using ICinema.Interfaces;
 using ICinema.Models;
 using ICinema.Repositories;
 using ICinema.ViewModels;
@@ -14,10 +15,12 @@ namespace ICinema.Controllers
     {
 
 		private readonly IAppUserRepository _appUserRepository;
-		public AppUserController(IAppUserRepository appUserRepository)
+		private readonly ILogger<AppUserController> _logger;
+		public AppUserController(IAppUserRepository appUserRepository, ILogger<AppUserController> logger)
 		{
 
 			_appUserRepository = appUserRepository;
+			_logger = logger;
 		}
 		public async Task<IActionResult> Index()
         {
@@ -38,15 +41,15 @@ namespace ICinema.Controllers
             return View(userPersonalProfileVM);
         }
 		
-		public IActionResult Login()
+		public IActionResult Login(string returnUrl= "/Home/Index")
 		{
-			
-			return View();
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
 		}
 		
 		[HttpPost]
         
-        public async Task<IActionResult> Login(LoginVM loginVM)
+        public async Task<IActionResult> Login(LoginVM loginVM, string returnUrl="/Home/Index")
 		{
 			if (!ModelState.IsValid)
 			{
@@ -63,7 +66,8 @@ namespace ICinema.Controllers
 					var result =  await _appUserRepository.CheckPasswordSignIn(user, loginVM);
 					if (result.Succeeded)
 					{
-						return RedirectToAction("Index");
+						_logger.LogInformation("User sign in successfuly");
+						return LocalRedirect(returnUrl);
 					}
 				}
 				ModelState.AddModelError(string.Empty, "Incorrect password.");
@@ -209,46 +213,16 @@ namespace ICinema.Controllers
 			var result = await _appUserRepository.ConfirmEmailAsync(user, code);
 			return View(result.Succeeded ? "ConfirmEmail" : "Error");
 		}
+		
 		public async Task<IActionResult> DeleteUser()
 		{
 			var user= await _appUserRepository.GetUser(User);
 			await _appUserRepository.DeleteUserAsync(user);
-			return View();
+			return RedirectToAction("Index","Home");
 		}
-		[HttpPost]
+		
 
-		public async Task<IActionResult> AddTicketToCart(Ticket ticket)
-		{
-			var user = await _appUserRepository.GetUser(User);
-			if (user != null) 
-			{
-				var result = await _appUserRepository.AddTicketToCartAsync(user, ticket);
-				if (result.Succeeded) 
-				{
-					return RedirectToAction("UserCart", "AppUser");
-				}
-			}
-			ModelState.AddModelError(String.Empty, "Please Login");
-			return RedirectToAction("Login", "AppUser");
-
-		}
-
-		public async Task<IActionResult> UserCart()
-		{
-			AppUser user =  await _appUserRepository.GetUser(User);
-			if (user != null)
-			{
-				CartVM cartVM = new CartVM()
-				{
-					Tickets = user.MyTickets.ToList(),
-					Screaning=user.Cart.Screaning,
-				};
-				
-				return View(cartVM);
-			}
-            ModelState.AddModelError(String.Empty, "Please Login");
-            return RedirectToAction("Login", "AppUser");
-        }
+		
 
 
 	}

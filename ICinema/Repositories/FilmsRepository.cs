@@ -32,24 +32,15 @@ namespace ICinema.Repositories
             }
         }
 
-        public async Task<ICollection<FilmVM>> GetAllFilmsAsync()
+        public async Task<ICollection<Film>> GetAllFilmsAsync()
         {
-            var films = await _appDBContext.Films.ToListAsync();
-            ICollection<FilmVM> filmsVM = new List<FilmVM>();
-            foreach (var film in films)
-            {
-                var filmVM = new FilmVM()
-                {
-                    Id = film.Id,
-                    Title = film.Title,
-                    Image = film.Image
-                };
-                filmsVM.Add(filmVM);
-            }
-            return filmsVM;
-        }
+			var films = await _appDBContext.Films.Include(f => f.Schedules).ThenInclude(s=>  s.Screanings).ToListAsync();
 
-        public async Task<Film> GetByIdAsync(int id)
+			return films;
+		}
+		
+
+		public async Task<Film> GetByIdAsync(int id)
         {
             return await _appDBContext.Films.FirstOrDefaultAsync(h => h.Id == id);
         }

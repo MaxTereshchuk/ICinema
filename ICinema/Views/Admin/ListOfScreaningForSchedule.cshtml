@@ -1,0 +1,30 @@
+﻿@using ICinema.ViewModels
+@using System.Text.Json
+@model Schedule
+@{
+    ViewData["Title"] = "Screanings Page";
+}
+
+<body>
+    <div>
+        @if (Model.Screanings != null)
+        {
+            @foreach (Screaning screaning in Model.Screanings)
+            {
+                <h3>Screaning #@screaning.Id</h3>
+                <h3>Date: @screaning.Day</h3>
+                
+
+            }
+            
+        }
+        <div class="col-4">
+
+            <form asp-controller="Admin" asp-action="CreateScreaning" method="get">
+
+                <input type="hidden" name="scheduleJson" value="@JsonSerializer.Serialize(Model)" />
+                <button type="submit" class="btn btn-primary">Create Screening</button>
+            </form>
+        </div>
+    </div>
+</body>
