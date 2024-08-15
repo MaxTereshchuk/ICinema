@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
@@ -38,10 +39,10 @@ builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options=> options.LoginPath="/AppUser/Login");
 var app = builder.Build();
 
-if (args.Length == 1 && args[0].ToLower() == "seeddata")
+if (args.Length == 1 && args[0].ToLower() == "seedroles")
 {
     //await Seed.SeedUsersAndRolesAsync(app);
-    Seed.SeedData(app);
+    Seed.SeedRoles(app);
 }
 
 if (!app.Environment.IsDevelopment())

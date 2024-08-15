@@ -10,7 +10,7 @@ namespace ICinema.Data
 {
     public class Seed
     {
-        public static void SeedData(IApplicationBuilder applicationBuilder)
+        public static void SeedRoles(IApplicationBuilder applicationBuilder)
         {
 			//migrationBuilder.Sql(@"
 			//         INSERT INTO AspNetRoles (Id, Name, NormalizedName)

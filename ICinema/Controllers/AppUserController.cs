@@ -15,10 +15,12 @@ namespace ICinema.Controllers
     {
 
 		private readonly IAppUserRepository _appUserRepository;
-		public AppUserController(IAppUserRepository appUserRepository)
+		private readonly ILogger<AppUserController> _logger;
+		public AppUserController(IAppUserRepository appUserRepository, ILogger<AppUserController> logger)
 		{
 
 			_appUserRepository = appUserRepository;
+			_logger = logger;
 		}
 		public async Task<IActionResult> Index()
         {
@@ -64,6 +66,7 @@ namespace ICinema.Controllers
 					var result =  await _appUserRepository.CheckPasswordSignIn(user, loginVM);
 					if (result.Succeeded)
 					{
+						_logger.LogInformation("User sign in successfuly");
 						return LocalRedirect(returnUrl);
 					}
 				}
