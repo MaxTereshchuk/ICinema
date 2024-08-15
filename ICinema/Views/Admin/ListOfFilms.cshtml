@@ -1,0 +1,36 @@
+﻿@using ICinema.ViewModels
+@using System.Text.Json
+@model ICollection<Film>
+@{
+    ViewData["Title"] = "Films Page";
+}
+
+<body>
+    <div>
+        @if (Model.Count != null)
+        {
+            @foreach (Film film in Model)
+            {
+                <h3>Film #@film.Title </h3>
+                <img class="card-img-top" alt="Thumbnail [100%x225]" src="@film.Image">
+                <div class="col-4">
+                    <form asp-controller="Admin" asp-action="ListOfSchedulesForFilm" method="post">
+
+                        <input type="hidden" name="filmJson" value="@JsonSerializer.Serialize(film)" />
+                        <button type="submit" class="btn btn-primary">ListofShedules</button>
+                    </form>
+                    
+                </div>
+
+            }
+            
+        }
+        <div class="col-4">
+            <form asp-controller="Admin" asp-action="CreateFilm" method="get">
+
+
+                <button type="submit" class="btn btn-primary">Create Film</button>
+            </form>
+        </div>
+    </div>
+</body>

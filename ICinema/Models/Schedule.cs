@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ICinema.Models
 {
@@ -11,6 +12,7 @@ namespace ICinema.Models
         public ICollection<Screaning>? Screanings { get; set; }
         [ForeignKey("Film")]
         public int FilmId { get; set; }
+        [JsonIgnore]
         public Film? Film { get; set; }
         [NotMapped]
         public string Date { get { return Day.Date.ToString(); } }

@@ -13,11 +13,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    });
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IHallRepository, HallRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IFilmsRepository, FilmsRepository>();
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -43,6 +50,12 @@ if (args.Length == 1 && args[0].ToLower() == "seedroles")
 {
     //await Seed.SeedUsersAndRolesAsync(app);
     Seed.SeedRoles(app);
+}
+
+if (args.Length == 1 && args[0].ToLower() == "addroles")
+{
+    //await Seed.SeedUsersAndRolesAsync(app);
+    AddRoles.SeedData(app);
 }
 
 if (!app.Environment.IsDevelopment())

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ICinema.Models
 {
@@ -10,6 +11,7 @@ namespace ICinema.Models
         public DateTime Day{ get; set; }
         [ForeignKey("Schedule")]
         public int ScheduleId { get; set; }
+        [JsonIgnore]
         public Schedule Schedule { get; set; }
 
         [ForeignKey("Hall")]
